@@ -1,35 +1,6 @@
 <script type="text/javascript">
-    <!--  custom js  -->
-    $.fn.modal.Constructor.prototype.enforceFocus = function() {};
-    let csrfName  = '<?php echo $this->security->get_csrf_token_name(); ?>';
-    let site      = '<?php echo site_url(isset($siteUri) ? $siteUri : ''); ?>';
-    let msg       = new alertMessage();
-    let load      = 0;
-    let unit_id   = 0;
-    const swalAlert = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-primary',
-            cancelButton: 'btn btn-danger',
-        },
-        buttonsStyling: false
-    });
-    function run_waitMe(el) {
-        el.waitMe({
-            effect: 'facebook',
-            text: 'Please wait...',
-            bg: 'rgba(255,255,255,0.7)',
-            color: '#000',
-            maxSize: 100,
-            waitTime: -1,
-            textPos: 'vertical',
-            source: '',
-            fontSize: '',
-            onClose: function(el) {}
-        });
-    }
-    $(document).ready(function(e) {
-        getDataListUser();
-    });
+
+    getDataListUser();
     $(document).on('click', '.btnFilter', function(e){
         $('#formFilter').slideToggle('slow');
         $('form#formFilter').trigger('reset');
@@ -106,7 +77,7 @@
     });
     //panggil form Entri
     $(document).on('click', '#btnAdd', function(e){
-        formReset();
+        formReset2();
         $('#modalEntryForm').modal({
             backdrop: 'static'
         });
@@ -117,10 +88,10 @@
     $(document).on('click', '.btnClose', function(e) {
         //get modal id
         let id = $(this).closest('div.modal').attr('id');
-        formReset();
+        formReset2();
         $('#'+id).modal('toggle');
     });
-    function formReset() {
+    function formReset2() {
         $('#status').select2().val('1').trigger("change");
         $('#blokir').select2().val('0').trigger("change");
         $('#status').select2().val('1').trigger("change");
@@ -231,7 +202,7 @@
     });
     $(document).on('click', '.btnEdit', function(e) {
         e.stopPropagation();
-        formReset();
+        formReset2();
         $('#formEntry').attr('action', site + '/update');
         let token = $(this).data('id');
         $('.lblPass').text('');

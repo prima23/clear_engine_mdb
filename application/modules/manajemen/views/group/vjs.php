@@ -1,33 +1,7 @@
 <script type="text/javascript">
-    <!--  custom js  -->
-    $.fn.modal.Constructor.prototype.enforceFocus = function() {};
-    let csrfName  = '<?php echo $this->security->get_csrf_token_name(); ?>';
-    let site      = '<?php echo site_url(isset($siteUri) ? $siteUri : ''); ?>';
-    let msg       = new alertMessage();
-    const swalAlert = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-primary',
-            cancelButton: 'btn btn-danger',
-        },
-        buttonsStyling: false
-    });
-    function run_waitMe(el) {
-        el.waitMe({
-            effect: 'facebook',
-            text: 'Please wait...',
-            bg: 'rgba(255,255,255,0.7)',
-            color: '#000',
-            maxSize: 100,
-            waitTime: -1,
-            textPos: 'vertical',
-            source: '',
-            fontSize: '',
-            onClose: function(el) {}
-        });
-    }
-    $(document).ready(function(e) {
-        getDataListGroup();
-    });
+
+    getDataListGroup();
+
     function getDataListGroup() {
         $('#tblList').dataTable({
             "pagingType": "full_numbers",
@@ -38,6 +12,7 @@
                 "processing": 'Loading data...'
             },
             "serverSide": true,
+            "stateSave" : true,
             "ordering": false,
             "ajax": {
                 "url": site + '/listview',
@@ -80,15 +55,7 @@
         formReset();
         $('#'+id).modal('toggle');
     });
-    function formReset() {
-        $('#status').select2().val('1').trigger("change");
-        $('form#formEntry .select-all').select2().val('').trigger("change");
-        $('#formEntry').attr('action', site + '/create');
-        $('#errEntry').html('');
-        $('#errSuccess').html('');
-        $('form#formEntry').trigger('reset');
-        $('form#formEntry').removeClass('was-validated');
-    }
+
     $(document).on('submit', '#formEntry', function(e) {
         e.preventDefault();
         let postData = $(this).serialize();
@@ -144,7 +111,6 @@
                             confirmButtonText: '<i class="fas fa-check"></i> Oke',
                         }).then((result) => {
                             if (result.value) {
-                                $('#errSuccess').html(msg.success(data.message));
                                 getDataListGroup();
                             }
                         })
@@ -245,7 +211,6 @@
                             confirmButtonText: '<i class="fas fa-check"></i> Oke',
                         }).then((result) => {
                             if (result.value) {
-                                $('#errSuccess').html(msg.success(data.message));
                                 getDataListGroup();
                             }
                         })
@@ -389,6 +354,7 @@
         $.each($('#listRules input[type="checkbox"][name="prvlg[]"]:checked'), function(){
             rules.push($(this).val());
         });
+        console.log(rules);
         const postData = {
             'tokenId': token,
             'rulesId': rules,

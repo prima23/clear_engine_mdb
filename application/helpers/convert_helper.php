@@ -433,18 +433,18 @@ if (!function_exists('cutText')) {
     {
         if (strlen($text) > $length) {
             if ($mode != 1) {
-                $char = $text{
-                $length - 1};
+                $char = $text[
+                $length - 1];
                 switch ($mode) {
                     case 2:
                         while ($char != ' ') {
-                            $char = $text{
-                            --$length};
+                            $char = $text[
+                            --$length];
                         }
                     case 3:
                         while ($char != ' ') {
-                            $char = $text{
-                            ++$length};
+                            $char = $text[
+                            ++$length];
                         }
                 }
             }

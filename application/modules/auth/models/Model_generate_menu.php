@@ -16,17 +16,39 @@ class Model_generate_menu extends CI_Model
 
     public function getDataMenu()
     {
-        $this->db->select('a.id_menu,
+        $this->db->select("a.id_menu,
                            a.title_menu,
-                           (CASE a.is_parent
-                                WHEN "Y" THEN a.url_menu
-                                ELSE IF(LCASE(c.url_module) = LCASE(d.url_kontrol), IF(LCASE(e.url_fungsi) = "index", LCASE(c.url_module), CONCAT(LCASE(c.url_module),"/",LCASE(e.url_fungsi))), IF(LCASE(e.url_fungsi) = "index", CONCAT(LCASE(c.url_module),"/",LCASE(d.url_kontrol)), CONCAT(LCASE(c.url_module),"/",LCASE(d.url_kontrol),"/",LCASE(e.url_fungsi))))
-                           END) AS url_menu,
+                           (
+                            CASE
+                                    a.is_parent 
+                                    WHEN 'Y' THEN
+                                    a.url_menu 
+                            ELSE
+                                
+                                case lower(C.url_module)
+                                    when lower(d.url_kontrol) then 
+                                    
+                                        case lower(e.url_fungsi)
+                                            when 'index' then lower(C.url_module)
+                                        else
+                                            CONCAT(lower(C.url_module ), '/', lower(e.url_fungsi))
+                                        END
+                                     
+                                else
+                                        case lower(e.url_fungsi)
+                                            when 'index' then CONCAT(lower(C.url_module), '/', lower(d.url_kontrol))
+                                        else
+                                            CONCAT(lower(C.url_module), '/', lower(d.url_kontrol), '/', lower(e.url_fungsi))
+                                        END
+                                end
+                                
+                            END 
+                                ) AS url_menu,
                            a.icon_menu,
                            a.order_menu,
                            a.id_rules,
                            a.parent_id,
-                           a.is_parent');
+                           a.is_parent");
         $this->db->from('xi_sa_menu a');
         $this->db->join('xi_sa_rules b', 'b.id_rules = a.id_rules', 'left');
         $this->db->join('xi_sa_module c', 'c.id_module = b.id_module', 'left');
@@ -46,6 +68,7 @@ class Model_generate_menu extends CI_Model
         $this->db->order_by('a.order_menu ASC');
         $this->db->get();
         $query1 = $this->db->last_query();
+
         /*-------------------------------ambil parent-----------------------------*/
         $menus = "";
         $getParent = $this->db->query($query1);
@@ -90,23 +113,6 @@ class Model_generate_menu extends CI_Model
         return $menus;
     }
 
-    // public function getPemberitahuan()
-    // {
-    //     $dd = "";
-    //     $query = $this->db->query('call getPengumuman(?)', [$this->session->userdata('unit_id')]);
-    //     $query->next_result();
-    //     foreach ($query->result() as $row) {
-    //         if($row->pesan == null || $row->mod_date == null){
-    //             continue;
-    //         };
-    //         $dd .= '<a class="dropdown-item" href="#">
-    //                     <i class="far fa-money-bill-alt mr-2" aria-hidden="true"></i>
-    //                     <span>'.$row->pesan.'</span>
-    //                     <span class="float-right"><i class="far fa-clock" aria-hidden="true"></i> '.hitung_mundur($row->mod_date).'</span>
-    //                 </a>';
-    //     }
-    //     return $dd;
-    // }
 }
 
 // This is the end of auth signin model

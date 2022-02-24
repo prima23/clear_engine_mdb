@@ -36,7 +36,7 @@
     </div>
 </section>
 <div class="modal fade" id="modalEntryForm" tabindex="-1" role="dialog" aria-labelledby="modalEntryLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg" id="frmEntry">
+    <div class="modal-dialog modal-lg" id="frmEntry">
         <div class="modal-content">
             <div class="modal-header aqua-gradient-rgba">
                 <h4 class="modal-title heading lead white-text font-weight-bold"><i class="fas fa-edit"></i> Form Entri Data Kontrol</h4>

@@ -46,12 +46,12 @@ class Model_group extends CI_Model {
     }
 
     private function _get_datatables_query() {
-        $this->db->select('a.id_group,
+        $this->db->select("a.id_group,
                            a.nama_group,
                            a.id_level_akses,
                            a.id_status,
-                           CONCAT("Module: ",GROUP_CONCAT(DISTINCT(d.label_module) ORDER BY d.id_module ASC SEPARATOR ", ")) AS hak_akses,
-                           e.level_akses');
+                           CONCAT ( 'Module: ', string_agg(distinct(d.label_module), ', ' ) ) AS hak_akses,
+                           e.level_akses");
         $this->db->from('xi_sa_group a');
         $this->db->join('xi_sa_group_privileges b', 'a.id_group = b.id_group AND b.id_status = 1', 'left');
         $this->db->join('xi_sa_rules c', 'b.id_rules = c.id_rules', 'left');
@@ -72,6 +72,7 @@ class Model_group extends CI_Model {
             $i++;
         }
         $this->db->group_by('a.id_group');
+        $this->db->group_by('e.level_akses');
         $this->db->order_by('a.id_group', 'ASC');
     }
 
@@ -206,20 +207,22 @@ class Model_group extends CI_Model {
             $this->db->set('id_status', 0);
             $this->db->where('id_group', abs($id_group));
             $this->db->update('xi_sa_group_privileges');
-            foreach ($rules as $key => $r) {
-                $this->db->where('id_group', abs($id_group));
-                $this->db->where('id_rules', abs($this->encryption->decrypt($r)));
-                $cekData = $this->db->count_all_results('xi_sa_group_privileges');
-                if($cekData > 0) {
-                    //update status group privileges jadi 1
-                    $this->db->set('id_status', 1);
+            if(!empty($rules)){
+                foreach ($rules as $key => $r) {
                     $this->db->where('id_group', abs($id_group));
                     $this->db->where('id_rules', abs($this->encryption->decrypt($r)));
-                    $this->db->update('xi_sa_group_privileges');
-                } else {
-                    //insert data group privileges
-                    $data = array('id_group' => $id_group, 'id_rules' => $this->encryption->decrypt($r), 'id_status' => 1);
-                    $this->db->insert('xi_sa_group_privileges', $data);
+                    $cekData = $this->db->count_all_results('xi_sa_group_privileges');
+                    if($cekData > 0) {
+                        //update status group privileges jadi 1
+                        $this->db->set('id_status', 1);
+                        $this->db->where('id_group', abs($id_group));
+                        $this->db->where('id_rules', abs($this->encryption->decrypt($r)));
+                        $this->db->update('xi_sa_group_privileges');
+                    } else {
+                        //insert data group privileges
+                        $data = array('id_group' => $id_group, 'id_rules' => $this->encryption->decrypt($r), 'id_status' => 1);
+                        $this->db->insert('xi_sa_group_privileges', $data);
+                    }
                 }
             }
             return array('response'=>'SUCCESS', 'nama'=>$nama_group);

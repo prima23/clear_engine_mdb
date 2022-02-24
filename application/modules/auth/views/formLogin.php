@@ -179,6 +179,7 @@
           data: postData,
           dataType: "json"
         }).done(function(data) {
+          console.log(data);
           $('input[name="' + csrfName + '"]').val(data.csrfHash);
           if (data.status == 0) {
             $('#formLogin').addClass('was-validated');

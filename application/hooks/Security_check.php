@@ -14,8 +14,8 @@ class Security_check {
     public function __construct() {
         $this->ci =& get_instance();
         $this->ci->load->model(array('auth/model_auth_signin'));
-        $this->username 	= addslashes($this->ci->session->userdata('account_name'));
-        $this->session_id = $this->ci->session->userdata('AppTppOnline@2020session');
+        $this->username   = addslashes($this->ci->session->userdata('account_name'));
+        $this->session_id = $this->ci->session->userdata('clear3ngine2022');
         $this->ip_address = addslashes($this->ci->input->ip_address());
         $this->user_agent = addslashes($this->ci->input->user_agent());
     }
@@ -26,6 +26,7 @@ class Security_check {
         $method_access  = $this->ci->router->fetch_method();
 
         $cekWhiteList = $this->ci->model_auth_signin->getDataWhiteList($module_access, $class_access, $method_access);
+        
         if($cekWhiteList == FALSE){
             $statuslog	= $this->ci->model_auth_signin->cekSessionLog($this->username, $this->ip_address, $this->user_agent, $this->session_id);
             if(empty($this->username) OR $statuslog == FALSE){

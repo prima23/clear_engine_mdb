@@ -50,11 +50,14 @@ class Signin extends MY_Controller {
         $ip     = $this->input->get('ipaddress', TRUE);
         $user   = $this->input->get('user', TRUE);
         //cek url
+        
         $data = $this->mas->cekSessionLogUser($user, $sessid, $ip, $time, $this->user_agent);
-        if($data > 0)
+        if($data > 0){
             redirect('home');
-        else
+        }
+        else{
             redirect('auth/signin/logout');
+        }
     }
 
     private function createLoginForm() {
@@ -79,6 +82,7 @@ class Signin extends MY_Controller {
                 $result = array('status' => 0, 'message' => $this->form_validation->error_array(), 'flag' => 1, 'csrfHash' => $csrfHash);
                 $this->output->set_content_type('application/json')->set_output(json_encode($result));
             } else {
+                
                 //cek username yang diinputkan pertama
                 $checkUser = $this->is_username($this->username);
                 if(empty($checkUser) OR count($checkUser) <= 0) {
@@ -117,6 +121,7 @@ class Signin extends MY_Controller {
                                 $this->output->set_content_type('application/json')->set_output(json_encode($result));
                             } else {
                                 //set session username
+                                
                                 $this->session->set_userdata('account_name', $this->username);
                                 //delete failed log
                                 $this->mas->deleteFailedLog($this->username);
@@ -130,12 +135,14 @@ class Signin extends MY_Controller {
                                     $this->output->set_content_type('application/json')->set_output(json_encode($result));
                                 } else if(count($getGroup) == 1) {
                                     //insert success login
+                                    
                                     $dataLog = $this->mas->setSuccessLog($this->username, $this->ip_address, $this->user_agent);
                                     //set login time
                                     $this->expired_login->login_time();
                                     //set session satu group
                                     $this->set_session($this->username, $getGroup[0]['id_group']);
-                                    $result = array('status' => 1, 'message' => array('url' => site_url('auth/signin/account?'.$dataLog)), 'flag' => 1, 'csrfHash' => $csrfHash);
+                                    $result = array('status' => 1, 'message' => array('url' => site_url('auth/signin/account?'.$dataLog)), 'flag' => 1, 'csrfHash' => $csrfHash, 'session' => $this->session);
+
                                     $this->output->set_content_type('application/json')->set_output(json_encode($result));
                                 }
                             }
@@ -216,7 +223,7 @@ class Signin extends MY_Controller {
             $session['nick_level']			= $dataUser['nick_level'];
             $session['user_id']			    = $dataUser['token'];
             $session['unit_id']			    = $dataUser['unit_id'];
-            $session['unit_id_name']			= $dataUser['unit_id_name'];
+            $session['unit_id_name']		= $dataUser['unit_id_name'];
             //simpan session
             $this->session->set_userdata($session);
         } else
@@ -241,7 +248,7 @@ class Signin extends MY_Controller {
 
     public function switch_group($group) {
         $username 	= $this->session->userdata('account_name');
-        $session_id = $this->session->userdata('AppTppOnline@2020session');
+        $session_id = $this->session->userdata('clear3ngine2022');
         $statuslog	= $this->mas->cekSessionLog($username, $this->ip_address, $this->user_agent, $session_id);
         if($statuslog != 0 AND !empty($session_id) AND !empty($username) AND ((!empty($group) OR $group != 0 OR $group != ''))) {
             //set login time
@@ -261,14 +268,14 @@ class Signin extends MY_Controller {
         $array_session = array(	'account_name', 'nama_user', 'group_active',
                                 'group_name', 'group_switch', 'id_level_akses',
                                 'level_akses', 'nick_level', 'error_session',
-                                'user_id', 'unit_id', 'AppTppOnline@2020session');
+                                'user_id', 'unit_id', 'clear3ngine2022');
         $this->session->unset_userdata($array_session);
     }
 
     public function logout() {
         $this->session->unset_userdata('expires_by');
         $username  	= $this->session->userdata('account_name');
-        $session_id = $this->session->userdata('AppTppOnline@2020session');
+        $session_id = $this->session->userdata('clear3ngine2022');
         $ip_address = $this->input->ip_address();
         $user_agent = $this->input->user_agent();
         $this->mas->updateDataSessionLog($session_id, $username, $ip_address, $user_agent);
@@ -280,7 +287,7 @@ class Signin extends MY_Controller {
     public function timeout() {
         $this->session->unset_userdata('expires_by');
         $username  	= $this->session->userdata('account_name');
-        $session_id = $this->session->userdata('AppTppOnline@2020session');
+        $session_id = $this->session->userdata('clear3ngine2022');
         $ip_address = $this->input->ip_address();
         $user_agent = $this->input->user_agent();
         $this->mas->updateDataSessionLog($session_id, $username, $ip_address, $user_agent);

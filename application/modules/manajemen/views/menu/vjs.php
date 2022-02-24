@@ -1,50 +1,7 @@
 <script type="text/javascript">
-    <!--  custom js  -->
-    $.fn.modal.Constructor.prototype.enforceFocus = function() {};
-    let csrfName  = '<?php echo $this->security->get_csrf_token_name(); ?>';
-    let site      = '<?php echo site_url(isset($siteUri) ? $siteUri : ''); ?>';
-    let msg       = new alertMessage();
-    const swalAlert = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-primary',
-            cancelButton: 'btn btn-danger',
-        },
-        buttonsStyling: false
-    });
-    function run_waitMe(el) {
-        el.waitMe({
-            effect: 'facebook',
-            text: 'Please wait...',
-            bg: 'rgba(255,255,255,0.7)',
-            color: '#000',
-            maxSize: 100,
-            waitTime: -1,
-            textPos: 'vertical',
-            source: '',
-            fontSize: '',
-            onClose: function(el) {}
-        });
-    }
-    $(document).ready(function(e) {
-        getDataListMenu();
-        $('#tblRules').dataTable({
-            "pagingType": "full_numbers",
-            "destroy": true,
-            "processing":true,
-            "language": {
-                "loadingRecords": '&nbsp;',
-                "processing": 'Loading data...'
-            },
-            "ordering": false,
-            "columnDefs": [{
-                "targets": [ 0, -1 ], //first column
-                "orderable": false, //set not orderable
-                "className":'text-center'
-            }],
-        });
-        $('#tblRules_filter input').addClass('form-control').attr('placeholder','Search Data');
-        $('#tblRules_length select').addClass('form-control');
-    });
+
+    getDataListMenu();
+
     function getDataListMenu() {
         $.ajax({
             type: 'GET',
@@ -75,15 +32,7 @@
         formReset();
         $('#modalEntryForm').modal('toggle');
     });
-    function formReset() {
-        $('#status').select2().val('1').trigger('change');
-        $('form#formEntry .select-all').select2().val('').trigger("change");
-        $('#formEntry').attr('action', site + '/create');
-        $('#errEntry').html('');
-        $('#errSuccess').html('');
-        $('form#formEntry').trigger('reset');
-        $('form#formEntry').removeClass('was-validated');
-    }
+
     $(document).on('change', 'input[type=radio][name=is_parent]', function (e) {
         if ($("#type_1").is(":checked")) {
             document.getElementById("url_menu").value = '#';

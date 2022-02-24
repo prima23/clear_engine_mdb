@@ -1,6 +1,4 @@
 <section class="mb-5 pb-4 mt-4">
-    <?php echo $this->session->flashdata('message'); ?>
-    <div id="errSuccess"></div>
     <div class="row" id="formParent">
         <div class="col-xl-12 col-md-12 mb-xl-0 mb-4">
             <div class="card card-cascade narrower z-depth-1">
@@ -37,7 +35,7 @@
     </div>
 </section>
 <div class="modal fade" id="modalEntryForm" tabindex="-1" role="dialog" aria-labelledby="modalEntryLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg" id="frmEntry">
+    <div class="modal-dialog modal-lg" id="frmEntry">
         <div class="modal-content">
             <div class="modal-header aqua-gradient-rgba">
                 <h4 class="modal-title heading lead white-text font-weight-bold"><i class="fas fa-edit"></i> Form Entri Data Fungsi</h4>

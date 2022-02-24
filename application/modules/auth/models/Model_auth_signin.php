@@ -136,7 +136,7 @@ class Model_auth_signin extends CI_Model {
         $session_time   = date('c',$date_array[0]);
         $session_value 	= $this->encryption->encrypt($session_time);
         $login_time     = time();
-        $session = array('AppTppOnline@2020session' => $session_value);
+        $session = array('clear3ngine2022' => $session_value);
         $this->session->set_userdata($session);
         $getUser = $this->cekDataUsername($username);
         if(count($getUser) > 0) {
@@ -167,7 +167,7 @@ class Model_auth_signin extends CI_Model {
 
     public function getDataSessionLog($username, $ip_address, $user_agent, $session_id) {
         $this->db->where('username', $username);
-        //$this->db->where('ip_address', $ip_address);
+        $this->db->where('ip_address', $ip_address);
         $this->db->where('user_agent', $user_agent);
         $this->db->where('session_id', $session_id);
         $this->db->where('id_status', 1);
@@ -178,7 +178,9 @@ class Model_auth_signin extends CI_Model {
     }
 
     public function cekSessionLog($username, $ip_address, $user_agent, $session_id) {
+
         $data = $this->getDataSessionLog($username, $ip_address, $user_agent, $session_id);
+
         if(count($data) > 0)
             return TRUE;
         else

@@ -75,7 +75,7 @@
 </div>
 
 <div class="modal fade" id="modalRulesForm" tabindex="-1" role="dialog" aria-labelledby="modalRulesLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-xl" id="frmRules">
+    <div class="modal-dialog modal-xl" id="frmRules">
         <div class="modal-content">
             <div class="modal-header aqua-gradient-rgba">
                 <h4 class="modal-title heading lead white-text font-weight-bold"><i class="fas fa-cogs"></i> Form Group Privilege Manajemen</h4>
