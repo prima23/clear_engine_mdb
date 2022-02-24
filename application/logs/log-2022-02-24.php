@@ -531,3 +531,139 @@ ERROR - 2022-02-24 15:44:02 --> 404 Page Not Found: /index
 ERROR - 2022-02-24 15:44:02 --> 404 Page Not Found: /index
 ERROR - 2022-02-24 15:44:42 --> 404 Page Not Found: /index
 ERROR - 2022-02-24 15:44:42 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 15:46:50 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 15:46:51 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:15:35 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:15:35 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:18:48 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:18:48 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:19:24 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:19:24 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:21:41 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:21:41 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:25:13 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:25:13 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:27:07 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:27:07 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:27:22 --> Severity: Warning --> pg_query(): Query failed: ERROR:  invalid input syntax for type smallint: &quot;&quot;
+LINE 4: AND &quot;parent_id&quot; = ''
+                          ^ D:\xampp7\htdocs\clear-engine\system\database\drivers\postgre\postgre_driver.php 242
+ERROR - 2022-02-24 16:27:22 --> Query error: ERROR:  invalid input syntax for type smallint: ""
+LINE 4: AND "parent_id" = ''
+                          ^ - Invalid query: SELECT COUNT(*) AS "numrows"
+FROM "xi_sa_menu"
+WHERE "order_menu" = '12'
+AND "parent_id" = ''
+ERROR - 2022-02-24 16:27:54 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:27:54 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:28:07 --> Severity: Warning --> pg_query(): Query failed: ERROR:  invalid input syntax for type smallint: &quot;&quot;
+LINE 4: AND &quot;parent_id&quot; = ''
+                          ^ D:\xampp7\htdocs\clear-engine\system\database\drivers\postgre\postgre_driver.php 242
+ERROR - 2022-02-24 16:28:07 --> Query error: ERROR:  invalid input syntax for type smallint: ""
+LINE 4: AND "parent_id" = ''
+                          ^ - Invalid query: SELECT COUNT(*) AS "numrows"
+FROM "xi_sa_menu"
+WHERE "order_menu" = '12'
+AND "parent_id" = ''
+ERROR - 2022-02-24 16:31:04 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:31:04 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:32:48 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:32:49 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:35:22 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:35:22 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:36:02 --> Severity: Warning --> pg_query(): Query failed: ERROR:  invalid input syntax for type smallint: &quot;&quot;
+LINE 4: AND &quot;parent_id&quot; = ''
+                          ^ D:\xampp7\htdocs\clear-engine\system\database\drivers\postgre\postgre_driver.php 242
+ERROR - 2022-02-24 16:36:02 --> Query error: ERROR:  invalid input syntax for type smallint: ""
+LINE 4: AND "parent_id" = ''
+                          ^ - Invalid query: SELECT COUNT(*) AS "numrows"
+FROM "xi_sa_menu"
+WHERE "order_menu" = '45'
+AND "parent_id" = ''
+ERROR - 2022-02-24 16:36:52 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:36:53 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:37:10 --> Severity: Warning --> pg_query(): Query failed: ERROR:  column &quot;id_rules&quot; is of type smallint but expression is of type boolean
+LINE 1: ...tus&quot;) VALUES ('dfd', '', 'fas fa-file-alt', '23', FALSE, '2'...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression. D:\xampp7\htdocs\clear-engine\system\database\drivers\postgre\postgre_driver.php 242
+ERROR - 2022-02-24 16:37:10 --> Query error: ERROR:  column "id_rules" is of type smallint but expression is of type boolean
+LINE 1: ...tus") VALUES ('dfd', '', 'fas fa-file-alt', '23', FALSE, '2'...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression. - Invalid query: INSERT INTO "xi_sa_menu" ("title_menu", "url_menu", "icon_menu", "order_menu", "id_rules", "parent_id", "is_parent", "create_by", "create_date", "create_ip", "mod_by", "mod_date", "mod_ip", "id_status") VALUES ('dfd', '', 'fas fa-file-alt', '23', FALSE, '2', 'N', 'primaaulia', '2022-02-24 16:37:10', '::1', 'primaaulia', '2022-02-24 16:37:10', '::1', '1')
+ERROR - 2022-02-24 16:42:56 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:42:56 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:43:24 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:43:24 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:44:49 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:44:49 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:45:03 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:45:03 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 16:50:06 --> Severity: Warning --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;SEPARATOR&quot;
+LINE 4: ...CONCAT(c.nama_group ORDER BY c.id_level_akses ASC SEPARATOR ...
+                                                             ^ D:\xampp7\htdocs\clear-engine\system\database\drivers\postgre\postgre_driver.php 242
+ERROR - 2022-02-24 16:50:06 --> Query error: ERROR:  syntax error at or near "SEPARATOR"
+LINE 4: ...CONCAT(c.nama_group ORDER BY c.id_level_akses ASC SEPARATOR ...
+                                                             ^ - Invalid query: SELECT "a"."id_users", "a"."token", "a"."unit_id", "a"."username", "a"."email", "a"."fullname", "a"."foto_profile", "a"."blokir", "a"."id_status", "a"."unit_id_name", (CASE
+                               WHEN d.pass_plain IS NULL THEN "-"
+                               ELSE d.pass_plain
+                           END) AS pass_plain, GROUP_CONCAT(c.nama_group ORDER BY c.id_level_akses ASC SEPARATOR ", ") AS group_user
+FROM "xi_sa_users" "a"
+LEFT JOIN "xi_sa_users_privileges" "b" ON "a"."id_users" = "b"."id_users"
+LEFT JOIN "xi_sa_group" "c" ON "b"."id_group" = "c"."id_group"
+LEFT JOIN "xi_sa_users_default_pass" "d" ON "a"."id_users" = "d"."id_users"
+WHERE "b"."id_status" = 1
+GROUP BY "a"."id_users"
+ORDER BY "a"."id_users" ASC
+ LIMIT 10
+ERROR - 2022-02-24 17:01:51 --> Severity: Warning --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;SEPARATOR&quot;
+LINE 4: ...CONCAT(c.nama_group ORDER BY c.id_level_akses ASC SEPARATOR ...
+                                                             ^ D:\xampp7\htdocs\clear-engine\system\database\drivers\postgre\postgre_driver.php 242
+ERROR - 2022-02-24 17:01:51 --> Query error: ERROR:  syntax error at or near "SEPARATOR"
+LINE 4: ...CONCAT(c.nama_group ORDER BY c.id_level_akses ASC SEPARATOR ...
+                                                             ^ - Invalid query: SELECT "a"."id_users", "a"."token", "a"."unit_id", "a"."username", "a"."email", "a"."fullname", "a"."foto_profile", "a"."blokir", "a"."id_status", "a"."unit_id_name", (CASE
+                               WHEN d.pass_plain IS NULL THEN "-"
+                               ELSE d.pass_plain
+                           END) AS pass_plain, GROUP_CONCAT(c.nama_group ORDER BY c.id_level_akses ASC SEPARATOR ", ") AS group_user
+FROM "xi_sa_users" "a"
+LEFT JOIN "xi_sa_users_privileges" "b" ON "a"."id_users" = "b"."id_users"
+LEFT JOIN "xi_sa_group" "c" ON "b"."id_group" = "c"."id_group"
+LEFT JOIN "xi_sa_users_default_pass" "d" ON "a"."id_users" = "d"."id_users"
+WHERE "b"."id_status" = 1
+GROUP BY "a"."id_users"
+ORDER BY "a"."id_users" ASC
+ LIMIT 10
+ERROR - 2022-02-24 17:01:54 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 17:01:54 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 17:02:04 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 17:02:04 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 17:02:04 --> Severity: Warning --> pg_query(): Query failed: ERROR:  syntax error at or near &quot;SEPARATOR&quot;
+LINE 4: ...CONCAT(c.nama_group ORDER BY c.id_level_akses ASC SEPARATOR ...
+                                                             ^ D:\xampp7\htdocs\clear-engine\system\database\drivers\postgre\postgre_driver.php 242
+ERROR - 2022-02-24 17:02:04 --> Query error: ERROR:  syntax error at or near "SEPARATOR"
+LINE 4: ...CONCAT(c.nama_group ORDER BY c.id_level_akses ASC SEPARATOR ...
+                                                             ^ - Invalid query: SELECT "a"."id_users", "a"."token", "a"."unit_id", "a"."username", "a"."email", "a"."fullname", "a"."foto_profile", "a"."blokir", "a"."id_status", "a"."unit_id_name", (CASE
+                               WHEN d.pass_plain IS NULL THEN "-"
+                               ELSE d.pass_plain
+                           END) AS pass_plain, GROUP_CONCAT(c.nama_group ORDER BY c.id_level_akses ASC SEPARATOR ", ") AS group_user
+FROM "xi_sa_users" "a"
+LEFT JOIN "xi_sa_users_privileges" "b" ON "a"."id_users" = "b"."id_users"
+LEFT JOIN "xi_sa_group" "c" ON "b"."id_group" = "c"."id_group"
+LEFT JOIN "xi_sa_users_default_pass" "d" ON "a"."id_users" = "d"."id_users"
+WHERE "b"."id_status" = 1
+GROUP BY "a"."id_users"
+ORDER BY "a"."id_users" ASC
+ LIMIT 10
+ERROR - 2022-02-24 17:05:23 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 17:05:23 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 17:10:01 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 17:10:01 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 17:11:01 --> Severity: Warning --> pg_query(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;xi_sa_users_pkey&quot;
+DETAIL:  Key (id_users)=(1) already exists. D:\xampp7\htdocs\clear-engine\system\database\drivers\postgre\postgre_driver.php 242
+ERROR - 2022-02-24 17:11:01 --> Query error: ERROR:  duplicate key value violates unique constraint "xi_sa_users_pkey"
+DETAIL:  Key (id_users)=(1) already exists. - Invalid query: INSERT INTO "xi_sa_users" ("token", "unit_id", "unit_id_name", "username", "password", "email", "fullname", "foto_profile", "blokir", "id_status", "validate_email_code", "validate_email_status", "reset_password_code", "reset_password_status", "reset_password_expired", "create_by", "create_date", "create_ip", "mod_by", "mod_date", "mod_ip") VALUES ('1C28B2DEB5F25511D7C5F2F0DE8EEF5B', '0', '', 'test1234', '$2a$12$YRaTYpILYIzk4DMfrut2keUbxflGKnvD3HOrB/lLbRG9GLLmv66J6', '', 'test', 'default-user-icon.jpg', '0', '1', '', 0, '', 0, 0, 'primaaulia', '2022-02-24 17:11:01', '::1', 'primaaulia', '2022-02-24 17:11:01', '::1')
+ERROR - 2022-02-24 17:11:30 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 17:11:30 --> 404 Page Not Found: /index
+ERROR - 2022-02-24 17:11:41 --> Severity: Warning --> pg_query(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;xi_sa_users_privileges_pkey&quot;
+DETAIL:  Key (id_users_privileges)=(2) already exists. D:\xampp7\htdocs\clear-engine\system\database\drivers\postgre\postgre_driver.php 242
+ERROR - 2022-02-24 17:11:41 --> Query error: ERROR:  duplicate key value violates unique constraint "xi_sa_users_privileges_pkey"
+DETAIL:  Key (id_users_privileges)=(2) already exists. - Invalid query: INSERT INTO "xi_sa_users_privileges" ("id_users", "id_group", "id_status") VALUES (3, '1', 1)

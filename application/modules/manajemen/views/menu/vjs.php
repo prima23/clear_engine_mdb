@@ -102,9 +102,7 @@
                             confirmButtonText: '<i class="fas fa-check"></i> Oke',
                         }).then((result) => {
                             if (result.value) {
-                                $('#errSuccess').html(msg.success(data.message));
                                 getDataListMenu();
-                                window.location.reload();
                             }
                         })
                     }
@@ -216,9 +214,7 @@
                             confirmButtonText: '<i class="fas fa-check"></i> Oke',
                         }).then((result) => {
                             if (result.value) {
-                                $('#errSuccess').html(msg.success(data.message));
                                 getDataListMenu();
-                                window.location.reload();
                             }
                         })
                     }
@@ -251,4 +247,14 @@
             return false;
         }
     });
+
+    $('#modalModuleList').on('show.bs.modal', function (e) {
+        $("#modalEntryForm").modal('hide');
+    });
+
+    $('#modalModuleList').on('hide.bs.modal', function (e) {
+        $("#modalEntryForm").modal('show');
+    });
+
+
 </script>

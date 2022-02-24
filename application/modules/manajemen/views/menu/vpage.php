@@ -11,7 +11,7 @@
                     </h6>
                     <div class="clearfix">
                         <a type="button" href="<?php echo site_url(isset($siteUri) ? $siteUri : '#'); ?>" class="btn btn-sm btn-white btn-rounded waves-effect waves-light px-3 py-2 font-weight-bold" name="button"><i class="fas fa-sync-alt"></i> Refresh Data</a>
-                        <button type="button" class="btn btn-rounded btn-sm btn-success waves-effect waves-light px-3 py-2 font-weight-bold btnAdd" data-id=""><i class="fas fa-plus-circle"></i> Tambah Baru</button>
+                        <button type="button" class="btn btn-rounded btn-sm btn-success waves-effect waves-light px-3 py-2 font-weight-bold btnAdd" data-id="0"><i class="fas fa-plus-circle"></i> Tambah Baru</button>
                     </div>
                 </div>
                 <div class="card-body mb-0">
@@ -130,7 +130,7 @@
     </div>
 </div>
 <div class="modal fade" id="modalModuleList" tabindex="-1" role="dialog" aria-labelledby="modalModuleListLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header aqua-gradient-rgba">
                 <h4 class="modal-title heading lead white-text font-weight-bold"><i class="fas fa-list-alt"></i> Data Rules Module</h4>

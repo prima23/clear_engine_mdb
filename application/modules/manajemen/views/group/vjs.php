@@ -403,7 +403,6 @@
                             confirmButtonText: '<i class="fas fa-check"></i> Oke',
                         }).then((result) => {
                             if (result.value) {
-                                $('#errSuccess').html(msg.success(data.message));
                                 getDataListGroup();
                             }
                         })

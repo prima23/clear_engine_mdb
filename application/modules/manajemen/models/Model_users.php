@@ -100,7 +100,7 @@ class Model_users extends CI_Model
 				$post[$v['name']] = $v['value'];
 			}
 		}
-		$this->db->select('a.id_users,
+		$this->db->select("a.id_users,
                            a.token,
                            a.unit_id,
                            a.username,
@@ -111,10 +111,10 @@ class Model_users extends CI_Model
                            a.id_status,
 						   a.unit_id_name,
                            (CASE
-                               WHEN d.pass_plain IS NULL THEN "-"
+                               WHEN d.pass_plain IS NULL THEN '-'
                                ELSE d.pass_plain
                            END) AS pass_plain,
-                           GROUP_CONCAT(c.nama_group ORDER BY c.id_level_akses ASC SEPARATOR ",") AS group_user');
+                           string_agg(c.nama_group, ', ') AS group_user");
 		$this->db->from('xi_sa_users a');
 		$this->db->join('xi_sa_users_privileges b', 'a.id_users = b.id_users', 'left');
 		$this->db->join('xi_sa_group c', 'b.id_group = c.id_group', 'left');
@@ -157,6 +157,7 @@ class Model_users extends CI_Model
 			$i++;
 		}
 		$this->db->group_by('a.id_users');
+		$this->db->group_by('d.pass_plain');
 		$this->db->order_by('a.id_users ASC');
 	}
 

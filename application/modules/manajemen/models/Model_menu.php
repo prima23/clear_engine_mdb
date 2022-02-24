@@ -17,6 +17,7 @@ class Model_menu extends CI_Model {
         $this->db->order_by('order_menu', 'ASC');
         $query = $this->db->get('xi_sa_menu');
         $dd_parent[''] = 'Pilih Data';
+        $dd_parent['0'] = 'Root';
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $r) {
                 $dd_parent[$r['id_menu']] = $r['title_menu'];
