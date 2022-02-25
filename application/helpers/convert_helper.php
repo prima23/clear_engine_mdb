@@ -75,9 +75,32 @@ if (!function_exists('bulanIndo')) {
             'Desember'
         );
 
-        return $bulan[$bulanAngka-1];
+        return $bulan[$bulanAngka - 1];
     }
 }
+
+if (!function_exists('user_agent')) {
+    function user_agent($str)
+    {
+        if (strpos($str, 'MSIE') !== FALSE)
+            echo 'Internet explorer';
+        elseif (strpos($str, 'Trident') !== FALSE) //For Supporting IE 11
+            echo 'Internet explorer';
+        elseif (strpos($str, 'Firefox') !== FALSE)
+            echo 'Mozilla Firefox';
+        elseif (strpos($str, 'Chrome') !== FALSE)
+            echo 'Google Chrome';
+        elseif (strpos($str, 'Opera Mini') !== FALSE)
+            echo "Opera Mini";
+        elseif (strpos($str, 'Opera') !== FALSE)
+            echo "Opera";
+        elseif (strpos($str, 'Safari') !== FALSE)
+            echo "Safari";
+        else
+            echo 'Something else';
+    }
+}
+
 
 if (!function_exists('space')) {
     function space($str)
@@ -109,14 +132,18 @@ if (!function_exists('upper')) {
 if (!function_exists('status_pns')) {
     function status_pns($stat)
     {
-        switch($stat){
-            case 1 : return "CPNS";
-            break;
-            case 2 : return "PNS";
-            break;
-            case 3 : return "PPPK";
-            break;
-            default : return "Tidak Ada";
+        switch ($stat) {
+            case 1:
+                return "CPNS";
+                break;
+            case 2:
+                return "PNS";
+                break;
+            case 3:
+                return "PPPK";
+                break;
+            default:
+                return "Tidak Ada";
         }
     }
 }
@@ -433,18 +460,15 @@ if (!function_exists('cutText')) {
     {
         if (strlen($text) > $length) {
             if ($mode != 1) {
-                $char = $text[
-                $length - 1];
+                $char = $text[$length - 1];
                 switch ($mode) {
                     case 2:
                         while ($char != ' ') {
-                            $char = $text[
-                            --$length];
+                            $char = $text[--$length];
                         }
                     case 3:
                         while ($char != ' ') {
-                            $char = $text[
-                            ++$length];
+                            $char = $text[++$length];
                         }
                 }
             }

@@ -11,19 +11,16 @@
                     </h6>
                     <div class="clearfix">
                         <a type="button" href="<?php echo site_url(isset($siteUri) ? $siteUri : '#'); ?>" class="btn btn-white btn-sm btn-rounded waves-effect waves-light px-3 py-2 font-weight-bold" name="button"><i class="fas fa-sync-alt"></i> Refresh Data</a>
+                        <a href="javascript:void(0);" class="btnFilter btn btn-secondary btn-rounded btn-sm text-right text-decoration-none text-black">
+                                    <i class="fas fa-sliders-h"></i> Filter Data
+                                </a>
                         <button type="button" class="btn btn-success btn-rounded btn-sm waves-effect waves-light px-3 py-2 font-weight-bold" id="btnAdd"><i class="fas fa-plus-circle"></i> Tambah Baru</button>
                         <button type="button" class="btn btn-danger btn-rounded btn-sm waves-effect waves-light px-3 py-2 font-weight-bold" id="btnDelete" style="display:none;"><i class="fa fa-trash-alt"></i> Delete User</button>
                     </div>
                 </div>
                 <div class="card-body mb-0">
                     <div class="row mb-3 mt-1">
-                        <div class="col-12 col-md-12 text-right">
-                            <h5 class="font-weight-bold">
-                                <a href="javascript:void(0);" class="btnFilter btn btn-secondary btn-rounded btn-sm text-right text-decoration-none text-black">
-                                    <i class="fas fa-sliders-h"></i> Filter Data
-                                </a>
-                            </h5>
-                        </div>
+
                         <div class="col-12 col-mb-12 mb-2">
                             <?php echo form_open(site_url('#'), array('id' => 'formFilter', 'style' => 'display:none;')); ?>
                             <div class="card rgba-grey-slight">

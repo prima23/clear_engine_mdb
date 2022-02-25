@@ -24,16 +24,13 @@ class Model_generate_menu extends CI_Model
                                     WHEN 'Y' THEN
                                     a.url_menu 
                             ELSE
-                                
                                 case lower(C.url_module)
                                     when lower(d.url_kontrol) then 
-                                    
                                         case lower(e.url_fungsi)
                                             when 'index' then lower(C.url_module)
                                         else
                                             CONCAT(lower(C.url_module ), '/', lower(e.url_fungsi))
                                         END
-                                     
                                 else
                                         case lower(e.url_fungsi)
                                             when 'index' then CONCAT(lower(C.url_module), '/', lower(d.url_kontrol))
@@ -68,32 +65,41 @@ class Model_generate_menu extends CI_Model
         $this->db->order_by('a.order_menu ASC');
         $this->db->get();
         $query1 = $this->db->last_query();
-
+                
         /*-------------------------------ambil parent-----------------------------*/
         $menus = "";
         $getParent = $this->db->query($query1);
+        //dd($getParent->result());
         foreach ($getParent->result() as $id) {
-            if ($id->parent_id != 0)
+            if ($id->parent_id != 0) {
                 $menus .= $this->getMenuParent($id->parent_id);
+            }
         }
+
         $parentID = explode(',', substr(trim($menus), 0, -1));
         /*------------------------------------------------------------------------*/
-        $this->db->select('id_menu,
-						   title_menu,
-						   url_menu,
-						   icon_menu,
-						   order_menu,
-						   id_rules,
-						   parent_id,
-						   is_parent');
-        $this->db->from('xi_sa_menu');
-        $this->db->where('is_parent', 'Y');
-        $this->db->where('id_status', 1);
-        $this->db->where_in('id_menu', $parentID);
-        $this->db->order_by('id_menu ASC', 'order_menu ASC');
-        $this->db->get();
-        $query2 = $this->db->last_query();
-        $query = $this->db->query("(" . $query1 . ") UNION (" . $query2 . ")");
+
+        if (empty($parentID[0])) {
+            $query = $this->db->query($query1);
+        } else {
+            $this->db->select('id_menu,
+            title_menu,
+            url_menu,
+            icon_menu,
+            order_menu,
+            id_rules,
+            parent_id,
+            is_parent');
+            $this->db->from('xi_sa_menu');
+            $this->db->where('is_parent', 'Y');
+            $this->db->where('id_status', 1);
+            $this->db->where_in('id_menu', $parentID);
+            $this->db->order_by('id_menu ASC', 'order_menu ASC');
+            $this->db->get();
+            $query2 = $this->db->last_query();
+            $query = $this->db->query("(" . $query1 . ") UNION (" . $query2 . ")");
+        }
+
         return $query->result_array();
     }
 
@@ -112,7 +118,6 @@ class Model_generate_menu extends CI_Model
             $menus .= $this->getMenuParent($query->row()->parent_id);
         return $menus;
     }
-
 }
 
 // This is the end of auth signin model

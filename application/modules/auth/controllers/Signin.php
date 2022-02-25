@@ -13,6 +13,7 @@ class Signin extends MY_Controller {
     protected $user_agent   = "";
     public function __construct() {
         parent::__construct();
+        
         $this->load->model(array('model_auth_signin' => 'mas'));
         $this->username 	= escape(trim($this->input->post('username', TRUE)));
         $this->password 	= escape($this->input->post('password', TRUE));
@@ -96,7 +97,7 @@ class Signin extends MY_Controller {
                         //insert error log ke table log login
                         $this->mas->setLoginFailed($this->username, $this->ip_address, $this->user_agent);
                         $blockir = $this->cek_blockir($this->username);
-                        if($blockir >= 5 && $blockir < 10) {
+                        if($blockir >= 3 && $blockir < 10) {
                             $result = array('status' => 0, 'message' => array('isi' => 'Anda sudah '.$blockir.' kali salah menginputkan password, batas kesalahan 10 kali. Jika masih salah akun anda akan diblokir otomatis oleh sistem...'), 'flag' => 1, 'csrfHash' => $csrfHash);
                             $this->output->set_content_type('application/json')->set_output(json_encode($result));
                         } else if($blockir >= 10) {
@@ -127,6 +128,7 @@ class Signin extends MY_Controller {
                                 $this->mas->deleteFailedLog($this->username);
                                 //ambil group user
                                 $getGroup = $this->mas->getDataUserGroup($this->username);
+
                                 if(count($getGroup) > 1) {
                                     //multi group
                                     $fullname   = !empty($checkUser) ? $checkUser['fullname'] : '';

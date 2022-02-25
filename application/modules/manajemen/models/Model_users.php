@@ -164,7 +164,7 @@ class Model_users extends CI_Model
 	/*Fungsi get data edit by id dan url*/
 	public function getDataDetailUsers($token, $unit_id)
 	{
-		$this->db->select('a.id_users,
+		$this->db->select("a.id_users,
                            a.token,
                            a.unit_id,
                            a.username,
@@ -174,7 +174,7 @@ class Model_users extends CI_Model
                            a.foto_profile,
                            a.blokir,
                            a.id_status,
-                           GROUP_CONCAT(b.id_group ORDER BY b.id_group ASC SEPARATOR ",") AS group_user');
+                           string_agg(b.id_group::varchar, ',') AS group_user");
 		$this->db->from('xi_sa_users a');
 		$this->db->join('xi_sa_users_privileges b', 'a.id_users = b.id_users', 'left');
 		$this->db->where('a.token', $token);

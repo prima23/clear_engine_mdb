@@ -1,5 +1,6 @@
 <script type="text/javascript">
-
+    let load      = 0;
+    let unit_id   = 0;
     getDataListUser();
     $(document).on('click', '.btnFilter', function(e){
         $('#formFilter').slideToggle('slow');
@@ -221,6 +222,7 @@
             data: {'tokenId' : token, '<?php echo $this->security->get_csrf_token_name(); ?>' : $('input[name="'+csrfName+'"]').val()},
             dataType: 'json',
             success: function(data) {
+                $('#frmEntry').waitMe('hide');
                 $('input[name="'+csrfName+'"]').val(data.csrfHash);
                 if(data.status == 'RC200') {
                     unit_id = data.message.unit_id;
@@ -244,7 +246,7 @@
                         $("#fopd").hide('slow');
                     }
                 }
-                $('#frmEntry').waitMe('hide');
+                
             }
         });
     }
