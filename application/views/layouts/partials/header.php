@@ -2,6 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title><?= (isset($page_name) ? $page_name : ''). ' | ' .(isset($app_name) ? $app_name : '');?></title>
+<link rel="icon" type="image/png" href="<?php echo $this->asset->image_path((isset($app_favico) ? $app_favico : '')) ?>">
 <!-- Font Awesome -->
 <?= $this->asset->css('themes/fontawesome/css/all.css'); ?>
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"> -->

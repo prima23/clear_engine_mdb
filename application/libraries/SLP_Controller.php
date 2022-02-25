@@ -27,7 +27,6 @@ class SLP_Controller extends MY_Controller {
     $this->session_info['app_keys']   = !empty($setApps) ? $setApps['app_keywords'] : '';
     $this->session_info['app_favico'] = !empty($setApps) ? $setApps['app_favicon'] : '';
     $this->session_info['appIcon']    = !empty($setApps) ? $setApps['app_icon'] : '';
-
     $this->template->enable_parser(FALSE); // default true
     $this->template->set_partial('header', 'layouts/partials/header', FALSE);
     $this->template->set_partial('title', 'layouts/partials/title', FALSE);

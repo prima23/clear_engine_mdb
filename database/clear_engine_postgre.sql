@@ -5,29 +5,7 @@
 -- Dumped from database version 14.0
 -- Dumped by pg_dump version 14.0
 
--- Started on 2022-02-25 11:58:04
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-DROP DATABASE clear_engine;
---
--- TOC entry 3527 (class 1262 OID 24671)
--- Name: clear_engine; Type: DATABASE; Schema: -; Owner: -
---
-
-CREATE DATABASE clear_engine WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'Indonesian_Indonesia.1252';
-
-
-\connect clear_engine
+-- Started on 2022-02-25 16:21:41
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -48,11 +26,22 @@ SET row_security = off;
 CREATE EXTENSION IF NOT EXISTS pldbgapi WITH SCHEMA public;
 
 
+--
+-- TOC entry 3527 (class 0 OID 0)
+-- Dependencies: 2
+-- Name: EXTENSION pldbgapi; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION pldbgapi IS 'server-side support for debugging PL/pgSQL functions';
+
+
+SET default_tablespace = '';
+
 SET default_table_access_method = heap;
 
 --
 -- TOC entry 211 (class 1259 OID 24680)
--- Name: xi_sa_fungsi; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_fungsi; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_fungsi (
@@ -73,9 +62,11 @@ CREATE TABLE public.xi_sa_fungsi (
 );
 
 
+ALTER TABLE public.xi_sa_fungsi OWNER TO postgres;
+
 --
 -- TOC entry 237 (class 1259 OID 33128)
--- Name: ac_xi_sa_fungsi; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_fungsi; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_fungsi
@@ -86,10 +77,12 @@ CREATE SEQUENCE public.ac_xi_sa_fungsi
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_fungsi OWNER TO postgres;
+
 --
 -- TOC entry 3528 (class 0 OID 0)
 -- Dependencies: 237
--- Name: ac_xi_sa_fungsi; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_fungsi; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_fungsi OWNED BY public.xi_sa_fungsi.id_fungsi;
@@ -97,7 +90,7 @@ ALTER SEQUENCE public.ac_xi_sa_fungsi OWNED BY public.xi_sa_fungsi.id_fungsi;
 
 --
 -- TOC entry 236 (class 1259 OID 33125)
--- Name: ac_xi_sa_group; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_group; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_group
@@ -108,9 +101,11 @@ CREATE SEQUENCE public.ac_xi_sa_group
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_group OWNER TO postgres;
+
 --
 -- TOC entry 213 (class 1259 OID 24690)
--- Name: xi_sa_group_privileges; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_group_privileges; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_group_privileges (
@@ -121,9 +116,11 @@ CREATE TABLE public.xi_sa_group_privileges (
 );
 
 
+ALTER TABLE public.xi_sa_group_privileges OWNER TO postgres;
+
 --
 -- TOC entry 241 (class 1259 OID 33171)
--- Name: ac_xi_sa_group_privileges; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_group_privileges; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_group_privileges
@@ -134,10 +131,12 @@ CREATE SEQUENCE public.ac_xi_sa_group_privileges
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_group_privileges OWNER TO postgres;
+
 --
 -- TOC entry 3529 (class 0 OID 0)
 -- Dependencies: 241
--- Name: ac_xi_sa_group_privileges; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_group_privileges; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_group_privileges OWNED BY public.xi_sa_group_privileges.id_group_privileges;
@@ -145,7 +144,7 @@ ALTER SEQUENCE public.ac_xi_sa_group_privileges OWNED BY public.xi_sa_group_priv
 
 --
 -- TOC entry 214 (class 1259 OID 24693)
--- Name: xi_sa_jenis_fungsi; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_jenis_fungsi; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_jenis_fungsi (
@@ -155,9 +154,11 @@ CREATE TABLE public.xi_sa_jenis_fungsi (
 );
 
 
+ALTER TABLE public.xi_sa_jenis_fungsi OWNER TO postgres;
+
 --
 -- TOC entry 246 (class 1259 OID 33248)
--- Name: ac_xi_sa_jenis_fungsi; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_jenis_fungsi; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_jenis_fungsi
@@ -168,10 +169,12 @@ CREATE SEQUENCE public.ac_xi_sa_jenis_fungsi
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_jenis_fungsi OWNER TO postgres;
+
 --
 -- TOC entry 3530 (class 0 OID 0)
 -- Dependencies: 246
--- Name: ac_xi_sa_jenis_fungsi; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_jenis_fungsi; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_jenis_fungsi OWNED BY public.xi_sa_jenis_fungsi.id_jenis_fungsi;
@@ -179,7 +182,7 @@ ALTER SEQUENCE public.ac_xi_sa_jenis_fungsi OWNED BY public.xi_sa_jenis_fungsi.i
 
 --
 -- TOC entry 215 (class 1259 OID 24696)
--- Name: xi_sa_kontrol; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_kontrol; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_kontrol (
@@ -198,9 +201,11 @@ CREATE TABLE public.xi_sa_kontrol (
 );
 
 
+ALTER TABLE public.xi_sa_kontrol OWNER TO postgres;
+
 --
 -- TOC entry 238 (class 1259 OID 33140)
--- Name: ac_xi_sa_kontrol; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_kontrol; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_kontrol
@@ -211,10 +216,12 @@ CREATE SEQUENCE public.ac_xi_sa_kontrol
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_kontrol OWNER TO postgres;
+
 --
 -- TOC entry 3531 (class 0 OID 0)
 -- Dependencies: 238
--- Name: ac_xi_sa_kontrol; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_kontrol; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_kontrol OWNED BY public.xi_sa_kontrol.id_kontrol;
@@ -222,7 +229,7 @@ ALTER SEQUENCE public.ac_xi_sa_kontrol OWNED BY public.xi_sa_kontrol.id_kontrol;
 
 --
 -- TOC entry 216 (class 1259 OID 24701)
--- Name: xi_sa_level_akses; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_level_akses; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_level_akses (
@@ -233,9 +240,11 @@ CREATE TABLE public.xi_sa_level_akses (
 );
 
 
+ALTER TABLE public.xi_sa_level_akses OWNER TO postgres;
+
 --
 -- TOC entry 247 (class 1259 OID 33256)
--- Name: ac_xi_sa_level_akses; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_level_akses; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_level_akses
@@ -246,10 +255,12 @@ CREATE SEQUENCE public.ac_xi_sa_level_akses
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_level_akses OWNER TO postgres;
+
 --
 -- TOC entry 3532 (class 0 OID 0)
 -- Dependencies: 247
--- Name: ac_xi_sa_level_akses; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_level_akses; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_level_akses OWNED BY public.xi_sa_level_akses.id_level_akses;
@@ -257,7 +268,7 @@ ALTER SEQUENCE public.ac_xi_sa_level_akses OWNED BY public.xi_sa_level_akses.id_
 
 --
 -- TOC entry 217 (class 1259 OID 24709)
--- Name: xi_sa_log_login; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_log_login; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_log_login (
@@ -269,9 +280,11 @@ CREATE TABLE public.xi_sa_log_login (
 );
 
 
+ALTER TABLE public.xi_sa_log_login OWNER TO postgres;
+
 --
 -- TOC entry 245 (class 1259 OID 33233)
--- Name: ac_xi_sa_log_login; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_log_login; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_log_login
@@ -282,10 +295,12 @@ CREATE SEQUENCE public.ac_xi_sa_log_login
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_log_login OWNER TO postgres;
+
 --
 -- TOC entry 3533 (class 0 OID 0)
 -- Dependencies: 245
--- Name: ac_xi_sa_log_login; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_log_login; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_log_login OWNED BY public.xi_sa_log_login.id_log;
@@ -293,24 +308,26 @@ ALTER SEQUENCE public.ac_xi_sa_log_login OWNED BY public.xi_sa_log_login.id_log;
 
 --
 -- TOC entry 218 (class 1259 OID 24715)
--- Name: xi_sa_log_session; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_log_session; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_log_session (
-    id_log_session integer NOT NULL,
-    id_users integer NOT NULL,
+    id_log_session smallint NOT NULL,
+    id_users smallint NOT NULL,
     username character varying(50) NOT NULL,
     login_time integer NOT NULL,
     ip_address character varying(20) NOT NULL,
     user_agent character varying(255) NOT NULL,
-    id_status integer NOT NULL,
+    id_status smallint NOT NULL,
     session_id character varying(255) NOT NULL
 );
 
 
+ALTER TABLE public.xi_sa_log_session OWNER TO postgres;
+
 --
 -- TOC entry 228 (class 1259 OID 24799)
--- Name: ac_xi_sa_log_session; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_log_session; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_log_session
@@ -321,10 +338,12 @@ CREATE SEQUENCE public.ac_xi_sa_log_session
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_log_session OWNER TO postgres;
+
 --
 -- TOC entry 3534 (class 0 OID 0)
 -- Dependencies: 228
--- Name: ac_xi_sa_log_session; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_log_session; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_log_session OWNED BY public.xi_sa_log_session.id_log_session;
@@ -332,7 +351,7 @@ ALTER SEQUENCE public.ac_xi_sa_log_session OWNED BY public.xi_sa_log_session.id_
 
 --
 -- TOC entry 219 (class 1259 OID 24720)
--- Name: xi_sa_menu; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_menu; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_menu (
@@ -354,9 +373,11 @@ CREATE TABLE public.xi_sa_menu (
 );
 
 
+ALTER TABLE public.xi_sa_menu OWNER TO postgres;
+
 --
 -- TOC entry 242 (class 1259 OID 33180)
--- Name: ac_xi_sa_menu; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_menu; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_menu
@@ -367,10 +388,12 @@ CREATE SEQUENCE public.ac_xi_sa_menu
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_menu OWNER TO postgres;
+
 --
 -- TOC entry 3535 (class 0 OID 0)
 -- Dependencies: 242
--- Name: ac_xi_sa_menu; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_menu; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_menu OWNED BY public.xi_sa_menu.id_menu;
@@ -378,7 +401,7 @@ ALTER SEQUENCE public.ac_xi_sa_menu OWNED BY public.xi_sa_menu.id_menu;
 
 --
 -- TOC entry 220 (class 1259 OID 24725)
--- Name: xi_sa_module; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_module; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_module (
@@ -397,9 +420,11 @@ CREATE TABLE public.xi_sa_module (
 );
 
 
+ALTER TABLE public.xi_sa_module OWNER TO postgres;
+
 --
 -- TOC entry 239 (class 1259 OID 33152)
--- Name: ac_xi_sa_module; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_module; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_module
@@ -410,10 +435,12 @@ CREATE SEQUENCE public.ac_xi_sa_module
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_module OWNER TO postgres;
+
 --
 -- TOC entry 3536 (class 0 OID 0)
 -- Dependencies: 239
--- Name: ac_xi_sa_module; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_module; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_module OWNED BY public.xi_sa_module.id_module;
@@ -421,7 +448,7 @@ ALTER SEQUENCE public.ac_xi_sa_module OWNED BY public.xi_sa_module.id_module;
 
 --
 -- TOC entry 221 (class 1259 OID 24730)
--- Name: xi_sa_rules; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_rules; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_rules (
@@ -433,9 +460,11 @@ CREATE TABLE public.xi_sa_rules (
 );
 
 
+ALTER TABLE public.xi_sa_rules OWNER TO postgres;
+
 --
 -- TOC entry 240 (class 1259 OID 33162)
--- Name: ac_xi_sa_rules; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_rules; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_rules
@@ -446,10 +475,12 @@ CREATE SEQUENCE public.ac_xi_sa_rules
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_rules OWNER TO postgres;
+
 --
 -- TOC entry 3537 (class 0 OID 0)
 -- Dependencies: 240
--- Name: ac_xi_sa_rules; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_rules; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_rules OWNED BY public.xi_sa_rules.id_rules;
@@ -457,7 +488,7 @@ ALTER SEQUENCE public.ac_xi_sa_rules OWNED BY public.xi_sa_rules.id_rules;
 
 --
 -- TOC entry 224 (class 1259 OID 24741)
--- Name: xi_sa_users; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_users; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_users (
@@ -486,9 +517,38 @@ CREATE TABLE public.xi_sa_users (
 );
 
 
+ALTER TABLE public.xi_sa_users OWNER TO postgres;
+
+--
+-- TOC entry 3538 (class 0 OID 0)
+-- Dependencies: 224
+-- Name: COLUMN xi_sa_users.foto_profile; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN public.xi_sa_users.foto_profile IS 'Foto Profile';
+
+
+--
+-- TOC entry 3539 (class 0 OID 0)
+-- Dependencies: 224
+-- Name: COLUMN xi_sa_users.blokir; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN public.xi_sa_users.blokir IS '0=diblokir, 1=tidak diblokir';
+
+
+--
+-- TOC entry 3540 (class 0 OID 0)
+-- Dependencies: 224
+-- Name: COLUMN xi_sa_users.id_status; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN public.xi_sa_users.id_status IS '0=Tidak Aktif, 1=Aktif';
+
+
 --
 -- TOC entry 243 (class 1259 OID 33199)
--- Name: ac_xi_sa_users; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_users; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_users
@@ -499,10 +559,12 @@ CREATE SEQUENCE public.ac_xi_sa_users
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_users OWNER TO postgres;
+
 --
--- TOC entry 3538 (class 0 OID 0)
+-- TOC entry 3541 (class 0 OID 0)
 -- Dependencies: 243
--- Name: ac_xi_sa_users; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_users; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_users OWNED BY public.xi_sa_users.id_users;
@@ -510,7 +572,7 @@ ALTER SEQUENCE public.ac_xi_sa_users OWNED BY public.xi_sa_users.id_users;
 
 --
 -- TOC entry 225 (class 1259 OID 24746)
--- Name: xi_sa_users_default_pass; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_users_default_pass; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_users_default_pass (
@@ -521,9 +583,11 @@ CREATE TABLE public.xi_sa_users_default_pass (
 );
 
 
+ALTER TABLE public.xi_sa_users_default_pass OWNER TO postgres;
+
 --
 -- TOC entry 244 (class 1259 OID 33215)
--- Name: ac_xi_sa_users_default_pass; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_users_default_pass; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_users_default_pass
@@ -534,10 +598,12 @@ CREATE SEQUENCE public.ac_xi_sa_users_default_pass
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_users_default_pass OWNER TO postgres;
+
 --
--- TOC entry 3539 (class 0 OID 0)
+-- TOC entry 3542 (class 0 OID 0)
 -- Dependencies: 244
--- Name: ac_xi_sa_users_default_pass; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_users_default_pass; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_users_default_pass OWNED BY public.xi_sa_users_default_pass.id_default_pass;
@@ -545,7 +611,7 @@ ALTER SEQUENCE public.ac_xi_sa_users_default_pass OWNED BY public.xi_sa_users_de
 
 --
 -- TOC entry 226 (class 1259 OID 24749)
--- Name: xi_sa_users_privileges; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_users_privileges; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_users_privileges (
@@ -556,9 +622,11 @@ CREATE TABLE public.xi_sa_users_privileges (
 );
 
 
+ALTER TABLE public.xi_sa_users_privileges OWNER TO postgres;
+
 --
 -- TOC entry 234 (class 1259 OID 33106)
--- Name: ac_xi_sa_users_privileges; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_users_privileges; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_users_privileges
@@ -569,10 +637,12 @@ CREATE SEQUENCE public.ac_xi_sa_users_privileges
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_users_privileges OWNER TO postgres;
+
 --
--- TOC entry 3540 (class 0 OID 0)
+-- TOC entry 3543 (class 0 OID 0)
 -- Dependencies: 234
--- Name: ac_xi_sa_users_privileges; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_users_privileges; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_users_privileges OWNED BY public.xi_sa_users_privileges.id_users_privileges;
@@ -580,7 +650,7 @@ ALTER SEQUENCE public.ac_xi_sa_users_privileges OWNED BY public.xi_sa_users_priv
 
 --
 -- TOC entry 227 (class 1259 OID 24752)
--- Name: xi_sa_white_list; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_white_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_white_list (
@@ -592,9 +662,11 @@ CREATE TABLE public.xi_sa_white_list (
 );
 
 
+ALTER TABLE public.xi_sa_white_list OWNER TO postgres;
+
 --
 -- TOC entry 235 (class 1259 OID 33108)
--- Name: ac_xi_sa_white_list; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: ac_xi_sa_white_list; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.ac_xi_sa_white_list
@@ -605,10 +677,12 @@ CREATE SEQUENCE public.ac_xi_sa_white_list
     CACHE 1;
 
 
+ALTER TABLE public.ac_xi_sa_white_list OWNER TO postgres;
+
 --
--- TOC entry 3541 (class 0 OID 0)
+-- TOC entry 3544 (class 0 OID 0)
 -- Dependencies: 235
--- Name: ac_xi_sa_white_list; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: ac_xi_sa_white_list; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.ac_xi_sa_white_list OWNED BY public.xi_sa_white_list.id_white_list;
@@ -616,7 +690,7 @@ ALTER SEQUENCE public.ac_xi_sa_white_list OWNED BY public.xi_sa_white_list.id_wh
 
 --
 -- TOC entry 210 (class 1259 OID 24675)
--- Name: xi_sa_ci_session; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_ci_session; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_ci_session (
@@ -627,9 +701,11 @@ CREATE TABLE public.xi_sa_ci_session (
 );
 
 
+ALTER TABLE public.xi_sa_ci_session OWNER TO postgres;
+
 --
 -- TOC entry 212 (class 1259 OID 24685)
--- Name: xi_sa_group; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_group; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_group (
@@ -647,9 +723,11 @@ CREATE TABLE public.xi_sa_group (
 );
 
 
+ALTER TABLE public.xi_sa_group OWNER TO postgres;
+
 --
 -- TOC entry 222 (class 1259 OID 24733)
--- Name: xi_sa_setting; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_setting; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_setting (
@@ -665,9 +743,11 @@ CREATE TABLE public.xi_sa_setting (
 );
 
 
+ALTER TABLE public.xi_sa_setting OWNER TO postgres;
+
 --
 -- TOC entry 223 (class 1259 OID 24738)
--- Name: xi_sa_status; Type: TABLE; Schema: public; Owner: -
+-- Name: xi_sa_status; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.xi_sa_status (
@@ -676,9 +756,11 @@ CREATE TABLE public.xi_sa_status (
 );
 
 
+ALTER TABLE public.xi_sa_status OWNER TO postgres;
+
 --
 -- TOC entry 3288 (class 2604 OID 33138)
--- Name: xi_sa_fungsi id_fungsi; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_fungsi id_fungsi; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_fungsi ALTER COLUMN id_fungsi SET DEFAULT nextval('public.ac_xi_sa_fungsi'::regclass);
@@ -686,7 +768,7 @@ ALTER TABLE ONLY public.xi_sa_fungsi ALTER COLUMN id_fungsi SET DEFAULT nextval(
 
 --
 -- TOC entry 3290 (class 2604 OID 33174)
--- Name: xi_sa_group_privileges id_group_privileges; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_group_privileges id_group_privileges; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_group_privileges ALTER COLUMN id_group_privileges SET DEFAULT nextval('public.ac_xi_sa_group_privileges'::regclass);
@@ -694,7 +776,7 @@ ALTER TABLE ONLY public.xi_sa_group_privileges ALTER COLUMN id_group_privileges 
 
 --
 -- TOC entry 3291 (class 2604 OID 33249)
--- Name: xi_sa_jenis_fungsi id_jenis_fungsi; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_jenis_fungsi id_jenis_fungsi; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_jenis_fungsi ALTER COLUMN id_jenis_fungsi SET DEFAULT nextval('public.ac_xi_sa_jenis_fungsi'::regclass);
@@ -702,7 +784,7 @@ ALTER TABLE ONLY public.xi_sa_jenis_fungsi ALTER COLUMN id_jenis_fungsi SET DEFA
 
 --
 -- TOC entry 3292 (class 2604 OID 33143)
--- Name: xi_sa_kontrol id_kontrol; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_kontrol id_kontrol; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_kontrol ALTER COLUMN id_kontrol SET DEFAULT nextval('public.ac_xi_sa_kontrol'::regclass);
@@ -710,7 +792,7 @@ ALTER TABLE ONLY public.xi_sa_kontrol ALTER COLUMN id_kontrol SET DEFAULT nextva
 
 --
 -- TOC entry 3293 (class 2604 OID 33257)
--- Name: xi_sa_level_akses id_level_akses; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_level_akses id_level_akses; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_level_akses ALTER COLUMN id_level_akses SET DEFAULT nextval('public.ac_xi_sa_level_akses'::regclass);
@@ -718,15 +800,15 @@ ALTER TABLE ONLY public.xi_sa_level_akses ALTER COLUMN id_level_akses SET DEFAUL
 
 --
 -- TOC entry 3294 (class 2604 OID 33241)
--- Name: xi_sa_log_login id_log; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_log_login id_log; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_log_login ALTER COLUMN id_log SET DEFAULT nextval('public.ac_xi_sa_log_login'::regclass);
 
 
 --
--- TOC entry 3295 (class 2604 OID 24800)
--- Name: xi_sa_log_session id_log_session; Type: DEFAULT; Schema: public; Owner: -
+-- TOC entry 3295 (class 2604 OID 33540)
+-- Name: xi_sa_log_session id_log_session; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_log_session ALTER COLUMN id_log_session SET DEFAULT nextval('public.ac_xi_sa_log_session'::regclass);
@@ -734,7 +816,7 @@ ALTER TABLE ONLY public.xi_sa_log_session ALTER COLUMN id_log_session SET DEFAUL
 
 --
 -- TOC entry 3296 (class 2604 OID 33183)
--- Name: xi_sa_menu id_menu; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_menu id_menu; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_menu ALTER COLUMN id_menu SET DEFAULT nextval('public.ac_xi_sa_menu'::regclass);
@@ -742,7 +824,7 @@ ALTER TABLE ONLY public.xi_sa_menu ALTER COLUMN id_menu SET DEFAULT nextval('pub
 
 --
 -- TOC entry 3297 (class 2604 OID 33155)
--- Name: xi_sa_module id_module; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_module id_module; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_module ALTER COLUMN id_module SET DEFAULT nextval('public.ac_xi_sa_module'::regclass);
@@ -750,7 +832,7 @@ ALTER TABLE ONLY public.xi_sa_module ALTER COLUMN id_module SET DEFAULT nextval(
 
 --
 -- TOC entry 3298 (class 2604 OID 33165)
--- Name: xi_sa_rules id_rules; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_rules id_rules; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_rules ALTER COLUMN id_rules SET DEFAULT nextval('public.ac_xi_sa_rules'::regclass);
@@ -758,7 +840,7 @@ ALTER TABLE ONLY public.xi_sa_rules ALTER COLUMN id_rules SET DEFAULT nextval('p
 
 --
 -- TOC entry 3299 (class 2604 OID 33207)
--- Name: xi_sa_users id_users; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_users id_users; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_users ALTER COLUMN id_users SET DEFAULT nextval('public.ac_xi_sa_users'::regclass);
@@ -766,7 +848,7 @@ ALTER TABLE ONLY public.xi_sa_users ALTER COLUMN id_users SET DEFAULT nextval('p
 
 --
 -- TOC entry 3300 (class 2604 OID 33216)
--- Name: xi_sa_users_default_pass id_default_pass; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_users_default_pass id_default_pass; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_users_default_pass ALTER COLUMN id_default_pass SET DEFAULT nextval('public.ac_xi_sa_users_default_pass'::regclass);
@@ -774,7 +856,7 @@ ALTER TABLE ONLY public.xi_sa_users_default_pass ALTER COLUMN id_default_pass SE
 
 --
 -- TOC entry 3301 (class 2604 OID 33107)
--- Name: xi_sa_users_privileges id_users_privileges; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_users_privileges id_users_privileges; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_users_privileges ALTER COLUMN id_users_privileges SET DEFAULT nextval('public.ac_xi_sa_users_privileges'::regclass);
@@ -782,7 +864,7 @@ ALTER TABLE ONLY public.xi_sa_users_privileges ALTER COLUMN id_users_privileges 
 
 --
 -- TOC entry 3302 (class 2604 OID 33115)
--- Name: xi_sa_white_list id_white_list; Type: DEFAULT; Schema: public; Owner: -
+-- Name: xi_sa_white_list id_white_list; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_white_list ALTER COLUMN id_white_list SET DEFAULT nextval('public.ac_xi_sa_white_list'::regclass);
@@ -791,17 +873,23 @@ ALTER TABLE ONLY public.xi_sa_white_list ALTER COLUMN id_white_list SET DEFAULT 
 --
 -- TOC entry 3489 (class 0 OID 24675)
 -- Dependencies: 210
--- Data for Name: xi_sa_ci_session; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_ci_session; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_ci_session (id, ip_address, "timestamp", data) FROM stdin;
+bvah872arr0trhin8mbrokcapdvlotup	::1	1645774883	X19jaV9sYXN0X3JlZ2VuZXJhdGV8aToxNjQ1Nzc0ODgzOw==
+jid5f3ssr1k6svn7o405kv6hudi6jm84	::1	1645774885	X19jaV9sYXN0X3JlZ2VuZXJhdGV8aToxNjQ1Nzc0ODg1Ow==
+0odhah74oapkpdgrur3bbeeh1l6e522j	::1	1645775402	X19jaV9sYXN0X3JlZ2VuZXJhdGV8aToxNjQ1Nzc1NDAyO2FjY291bnRfbmFtZXxzOjEwOiJwcmltYWF1bGlhIjtjbGVhcjNuZ2luZTIwMjJ8czoxOTI6ImZlMGMwMDNmYjQ5MTRhMGZkN2I0NWZjZjgxMTYxZDQxMDhiM2IwYzZlNjdmMjFkYjkyNWEyODY1MjRiZWYyMWMyYmY1MTU4NmVjNjFiZDg2MWVjNDYzMGRiYjQ0MDZhODMzZDU4NWFmOWYzYzFiZWMyMmU0ODE1MjEyMzA2ZmY4TEo4eEt0aE0wUHFzcHdHMEpTSWhiVElSZXR4S0lRVjFzRTF3LzdSY2JObVlFUjlheVF3RWw4S1pBcEg0OHpOWSI7ZXhwaXJlc19ieXxpOjE2NDU3Nzg1MTM7ZnVsbG5hbWV8czoxMToiUHJpbWEgQXVsaWEiO2dyb3VwX2FjdGl2ZXxzOjE6IjEiO2dyb3VwX25hbWV8czoxMToiU3VwZXIgQWRtaW4iO2xldmVsX2Frc2VzfHM6MTE6IlNVUEVSIEFETUlOIjtuaWNrX2xldmVsfHM6MzoiU0FEIjt1c2VyX2lkfHM6MzI6IjRBMzcyOUNBNUExNTkzRDcyRTY3RkYwRkUzMTE4NUQxIjt1bml0X2lkfHM6NDoiMjQ5NiI7dW5pdF9pZF9uYW1lfHM6NDM6IkRpbmFzIEtvbXVuaWthc2ksIEluZm9ybWF0aWthIERhbiBTdGF0aXN0aWsiO2dyb3VwX3N3aXRjaHxhOjI6e2k6MDthOjI6e3M6ODoiaWRfZ3JvdXAiO3M6MToiMSI7czoxMDoibmFtYV9ncm91cCI7czoxMToiU3VwZXIgQWRtaW4iO31pOjE7YToyOntzOjg6ImlkX2dyb3VwIjtzOjE6IjMiO3M6MTA6Im5hbWFfZ3JvdXAiO3M6OToiQWRtaW4gT1BEIjt9fQ==
+efjf2leradbjdk32ucmi0hmi746ffaog	::1	1645775756	X19jaV9sYXN0X3JlZ2VuZXJhdGV8aToxNjQ1Nzc1NzU2O2Z1bGxuYW1lfHM6MTE6IlByaW1hIEF1bGlhIjt1bml0X2lkX25hbWV8czo0MzoiRGluYXMgS29tdW5pa2FzaSwgSW5mb3JtYXRpa2EgRGFuIFN0YXRpc3RpayI7YWNjb3VudF9uYW1lfHM6MTA6InByaW1hYXVsaWEiO2NsZWFyM25naW5lMjAyMnxzOjE5MjoiNzI0Y2U2YjJmYTY0ZGI0MjJkMzBmMjU3OGY5OWFmM2FiYzNkMzBkMDcwM2EwYjJlNWM1OTA3Y2NkODRkZDgyOTc4NmViZWUwYzIxYzU2NGNmYmRhNjVmMDVmNjJmYzE0OGNjZDQzYWQ4OTllNGU0OTMxY2I2MTdjNTZlNDExNzIyaHp5Y2o2UmVYeDNDcXBuaSs3K05WUURDQThjRjhVUjV1TWxSbXhwdk41N2ZJVG1EMkZpalEySElmSjJxNXNWIjtleHBpcmVzX2J5fGk6MTY0NTc3OTI1ODtncm91cF9hY3RpdmV8czoxOiIxIjtncm91cF9uYW1lfHM6MTE6IlN1cGVyIEFkbWluIjtsZXZlbF9ha3Nlc3xzOjExOiJTVVBFUiBBRE1JTiI7bmlja19sZXZlbHxzOjM6IlNBRCI7dXNlcl9pZHxzOjMyOiI0QTM3MjlDQTVBMTU5M0Q3MkU2N0ZGMEZFMzExODVEMSI7dW5pdF9pZHxzOjQ6IjI0OTYiO2dyb3VwX3N3aXRjaHxhOjI6e2k6MDthOjI6e3M6ODoiaWRfZ3JvdXAiO3M6MToiMSI7czoxMDoibmFtYV9ncm91cCI7czoxMToiU3VwZXIgQWRtaW4iO31pOjE7YToyOntzOjg6ImlkX2dyb3VwIjtzOjE6IjMiO3M6MTA6Im5hbWFfZ3JvdXAiO3M6OToiQWRtaW4gT1BEIjt9fQ==
+67d73s4426a2krep97297r00fs04aj5n	::1	1645777960	X19jaV9sYXN0X3JlZ2VuZXJhdGV8aToxNjQ1Nzc3OTYwO2Z1bGxuYW1lfHM6MTE6IlByaW1hIEF1bGlhIjt1bml0X2lkX25hbWV8czo0MzoiRGluYXMgS29tdW5pa2FzaSwgSW5mb3JtYXRpa2EgRGFuIFN0YXRpc3RpayI7YWNjb3VudF9uYW1lfHM6MTA6InByaW1hYXVsaWEiO2NsZWFyM25naW5lMjAyMnxzOjE5MjoiNzI0Y2U2YjJmYTY0ZGI0MjJkMzBmMjU3OGY5OWFmM2FiYzNkMzBkMDcwM2EwYjJlNWM1OTA3Y2NkODRkZDgyOTc4NmViZWUwYzIxYzU2NGNmYmRhNjVmMDVmNjJmYzE0OGNjZDQzYWQ4OTllNGU0OTMxY2I2MTdjNTZlNDExNzIyaHp5Y2o2UmVYeDNDcXBuaSs3K05WUURDQThjRjhVUjV1TWxSbXhwdk41N2ZJVG1EMkZpalEySElmSjJxNXNWIjtleHBpcmVzX2J5fGk6MTY0NTc3OTI1ODtncm91cF9hY3RpdmV8czoxOiIxIjtncm91cF9uYW1lfHM6MTE6IlN1cGVyIEFkbWluIjtsZXZlbF9ha3Nlc3xzOjExOiJTVVBFUiBBRE1JTiI7bmlja19sZXZlbHxzOjM6IlNBRCI7dXNlcl9pZHxzOjMyOiI0QTM3MjlDQTVBMTU5M0Q3MkU2N0ZGMEZFMzExODVEMSI7dW5pdF9pZHxzOjQ6IjI0OTYiO2dyb3VwX3N3aXRjaHxhOjI6e2k6MDthOjI6e3M6ODoiaWRfZ3JvdXAiO3M6MToiMSI7czoxMDoibmFtYV9ncm91cCI7czoxMToiU3VwZXIgQWRtaW4iO31pOjE7YToyOntzOjg6ImlkX2dyb3VwIjtzOjE6IjMiO3M6MTA6Im5hbWFfZ3JvdXAiO3M6OToiQWRtaW4gT1BEIjt9fQ==
+ni084pd1n3ctvmau6hngji1i1lo7pm3s	::1	1645777964	X19jaV9sYXN0X3JlZ2VuZXJhdGV8aToxNjQ1Nzc3OTYwO2Z1bGxuYW1lfHM6MTE6IlByaW1hIEF1bGlhIjt1bml0X2lkX25hbWV8czo0MzoiRGluYXMgS29tdW5pa2FzaSwgSW5mb3JtYXRpa2EgRGFuIFN0YXRpc3RpayI7YWNjb3VudF9uYW1lfHM6MTA6InByaW1hYXVsaWEiO2NsZWFyM25naW5lMjAyMnxzOjE5MjoiNzI0Y2U2YjJmYTY0ZGI0MjJkMzBmMjU3OGY5OWFmM2FiYzNkMzBkMDcwM2EwYjJlNWM1OTA3Y2NkODRkZDgyOTc4NmViZWUwYzIxYzU2NGNmYmRhNjVmMDVmNjJmYzE0OGNjZDQzYWQ4OTllNGU0OTMxY2I2MTdjNTZlNDExNzIyaHp5Y2o2UmVYeDNDcXBuaSs3K05WUURDQThjRjhVUjV1TWxSbXhwdk41N2ZJVG1EMkZpalEySElmSjJxNXNWIjtleHBpcmVzX2J5fGk6MTY0NTc3OTI1ODtncm91cF9hY3RpdmV8czoxOiIxIjtncm91cF9uYW1lfHM6MTE6IlN1cGVyIEFkbWluIjtsZXZlbF9ha3Nlc3xzOjExOiJTVVBFUiBBRE1JTiI7bmlja19sZXZlbHxzOjM6IlNBRCI7dXNlcl9pZHxzOjMyOiI0QTM3MjlDQTVBMTU5M0Q3MkU2N0ZGMEZFMzExODVEMSI7dW5pdF9pZHxzOjQ6IjI0OTYiO2dyb3VwX3N3aXRjaHxhOjI6e2k6MDthOjI6e3M6ODoiaWRfZ3JvdXAiO3M6MToiMSI7czoxMDoibmFtYV9ncm91cCI7czoxMToiU3VwZXIgQWRtaW4iO31pOjE7YToyOntzOjg6ImlkX2dyb3VwIjtzOjE6IjMiO3M6MTA6Im5hbWFfZ3JvdXAiO3M6OToiQWRtaW4gT1BEIjt9fQ==
 \.
 
 
 --
 -- TOC entry 3490 (class 0 OID 24680)
 -- Dependencies: 211
--- Data for Name: xi_sa_fungsi; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_fungsi; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_fungsi (id_fungsi, nama_fungsi, label_fungsi, url_fungsi, deskripsi_fungsi, id_jenis_fungsi, id_level_akses, create_by, create_date, create_ip, mod_by, mod_date, mod_ip, id_status) FROM stdin;
@@ -832,7 +920,7 @@ COPY public.xi_sa_fungsi (id_fungsi, nama_fungsi, label_fungsi, url_fungsi, desk
 --
 -- TOC entry 3491 (class 0 OID 24685)
 -- Dependencies: 212
--- Data for Name: xi_sa_group; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_group; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_group (id_group, nama_group, id_level_akses, id_upk, create_by, create_date, create_ip, mod_by, mod_date, mod_ip, id_status) FROM stdin;
@@ -845,7 +933,7 @@ COPY public.xi_sa_group (id_group, nama_group, id_level_akses, id_upk, create_by
 --
 -- TOC entry 3492 (class 0 OID 24690)
 -- Dependencies: 213
--- Data for Name: xi_sa_group_privileges; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_group_privileges; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_group_privileges (id_group_privileges, id_group, id_rules, id_status) FROM stdin;
@@ -938,7 +1026,7 @@ COPY public.xi_sa_group_privileges (id_group_privileges, id_group, id_rules, id_
 --
 -- TOC entry 3493 (class 0 OID 24693)
 -- Dependencies: 214
--- Data for Name: xi_sa_jenis_fungsi; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_jenis_fungsi; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_jenis_fungsi (id_jenis_fungsi, jenis_fungsi, id_status) FROM stdin;
@@ -952,7 +1040,7 @@ COPY public.xi_sa_jenis_fungsi (id_jenis_fungsi, jenis_fungsi, id_status) FROM s
 --
 -- TOC entry 3494 (class 0 OID 24696)
 -- Dependencies: 215
--- Data for Name: xi_sa_kontrol; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_kontrol; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_kontrol (id_kontrol, nama_kontrol, label_kontrol, url_kontrol, deskripsi_kontrol, create_by, create_date, create_ip, mod_by, mod_date, mod_ip, id_status) FROM stdin;
@@ -969,7 +1057,7 @@ COPY public.xi_sa_kontrol (id_kontrol, nama_kontrol, label_kontrol, url_kontrol,
 --
 -- TOC entry 3495 (class 0 OID 24701)
 -- Dependencies: 216
--- Data for Name: xi_sa_level_akses; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_level_akses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_level_akses (id_level_akses, level_akses, nick_level, id_status) FROM stdin;
@@ -982,7 +1070,7 @@ COPY public.xi_sa_level_akses (id_level_akses, level_akses, nick_level, id_statu
 --
 -- TOC entry 3496 (class 0 OID 24709)
 -- Dependencies: 217
--- Data for Name: xi_sa_log_login; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_log_login; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_log_login (id_log, username, login_time, ip_address, user_agent) FROM stdin;
@@ -992,17 +1080,19 @@ COPY public.xi_sa_log_login (id_log, username, login_time, ip_address, user_agen
 --
 -- TOC entry 3497 (class 0 OID 24715)
 -- Dependencies: 218
--- Data for Name: xi_sa_log_session; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_log_session; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_log_session (id_log_session, id_users, username, login_time, ip_address, user_agent, id_status, session_id) FROM stdin;
+78	1	primaaulia	1645774913	::1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36	0	fe0c003fb4914a0fd7b45fcf81161d4108b3b0c6e67f21db925a286524bef21c2bf51586ec61bd861ec4630dbb4406a833d585af9f3c1bec22e4815212306ff8LJ8xKthM0PqspwG0JSIhbTIRetxKIQV1sE1w/7RcbNmYER9ayQwEl8KZApH48zNY
+79	1	primaaulia	1645775658	::1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36	1	724ce6b2fa64db422d30f2578f99af3abc3d30d0703a0b2e5c5907ccd84dd829786ebee0c21c564cfbda65f05f62fc148ccd43ad899e4e4931cb617c56e411722hzycj6ReXx3Cqpni+7+NVQDCA8cF8UR5uMlRmxpvN57fITmD2FijQ2HIfJ2q5sV
 \.
 
 
 --
 -- TOC entry 3498 (class 0 OID 24720)
 -- Dependencies: 219
--- Data for Name: xi_sa_menu; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_menu; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_menu (id_menu, title_menu, url_menu, icon_menu, order_menu, id_rules, parent_id, is_parent, create_by, create_date, create_ip, mod_by, mod_date, mod_ip, id_status) FROM stdin;
@@ -1020,7 +1110,7 @@ COPY public.xi_sa_menu (id_menu, title_menu, url_menu, icon_menu, order_menu, id
 --
 -- TOC entry 3499 (class 0 OID 24725)
 -- Dependencies: 220
--- Data for Name: xi_sa_module; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_module; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_module (id_module, nama_module, label_module, url_module, deskripsi_module, create_by, create_date, create_ip, mod_by, mod_date, mod_ip, id_status) FROM stdin;
@@ -1034,7 +1124,7 @@ COPY public.xi_sa_module (id_module, nama_module, label_module, url_module, desk
 --
 -- TOC entry 3500 (class 0 OID 24730)
 -- Dependencies: 221
--- Data for Name: xi_sa_rules; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_rules; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_rules (id_rules, id_module, id_kontrol, id_fungsi, id_status) FROM stdin;
@@ -1085,7 +1175,7 @@ COPY public.xi_sa_rules (id_rules, id_module, id_kontrol, id_fungsi, id_status) 
 --
 -- TOC entry 3501 (class 0 OID 24733)
 -- Dependencies: 222
--- Data for Name: xi_sa_setting; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_setting; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_setting (id, app_name, app_author, app_description, app_year, app_icon, app_favicon, app_keywords, app_versi) FROM stdin;
@@ -1096,7 +1186,7 @@ COPY public.xi_sa_setting (id, app_name, app_author, app_description, app_year, 
 --
 -- TOC entry 3502 (class 0 OID 24738)
 -- Dependencies: 223
--- Data for Name: xi_sa_status; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_status; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_status (id_status, nm_status) FROM stdin;
@@ -1108,7 +1198,7 @@ COPY public.xi_sa_status (id_status, nm_status) FROM stdin;
 --
 -- TOC entry 3503 (class 0 OID 24741)
 -- Dependencies: 224
--- Data for Name: xi_sa_users; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_users (id_users, token, unit_id, unit_id_name, username, password, email, fullname, foto_profile, blokir, id_status, validate_email_code, validate_email_status, reset_password_code, reset_password_status, reset_password_expired, create_by, create_date, create_ip, mod_by, mod_date, mod_ip) FROM stdin;
@@ -1119,7 +1209,7 @@ COPY public.xi_sa_users (id_users, token, unit_id, unit_id_name, username, passw
 --
 -- TOC entry 3504 (class 0 OID 24746)
 -- Dependencies: 225
--- Data for Name: xi_sa_users_default_pass; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_users_default_pass; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_users_default_pass (id_default_pass, id_users, pass_plain, updated) FROM stdin;
@@ -1129,7 +1219,7 @@ COPY public.xi_sa_users_default_pass (id_default_pass, id_users, pass_plain, upd
 --
 -- TOC entry 3505 (class 0 OID 24749)
 -- Dependencies: 226
--- Data for Name: xi_sa_users_privileges; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_users_privileges; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_users_privileges (id_users_privileges, id_users, id_group, id_status) FROM stdin;
@@ -1141,7 +1231,7 @@ COPY public.xi_sa_users_privileges (id_users_privileges, id_users, id_group, id_
 --
 -- TOC entry 3506 (class 0 OID 24752)
 -- Dependencies: 227
--- Data for Name: xi_sa_white_list; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: xi_sa_white_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.xi_sa_white_list (id_white_list, module_name, class_name, method_name, id_status) FROM stdin;
@@ -1154,135 +1244,135 @@ COPY public.xi_sa_white_list (id_white_list, module_name, class_name, method_nam
 
 
 --
--- TOC entry 3542 (class 0 OID 0)
+-- TOC entry 3545 (class 0 OID 0)
 -- Dependencies: 237
--- Name: ac_xi_sa_fungsi; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_fungsi; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_fungsi', 27, true);
 
 
 --
--- TOC entry 3543 (class 0 OID 0)
+-- TOC entry 3546 (class 0 OID 0)
 -- Dependencies: 236
--- Name: ac_xi_sa_group; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_group; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_group', 5, true);
 
 
 --
--- TOC entry 3544 (class 0 OID 0)
+-- TOC entry 3547 (class 0 OID 0)
 -- Dependencies: 241
--- Name: ac_xi_sa_group_privileges; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_group_privileges; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_group_privileges', 281, true);
 
 
 --
--- TOC entry 3545 (class 0 OID 0)
+-- TOC entry 3548 (class 0 OID 0)
 -- Dependencies: 246
--- Name: ac_xi_sa_jenis_fungsi; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_jenis_fungsi; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_jenis_fungsi', 5, false);
 
 
 --
--- TOC entry 3546 (class 0 OID 0)
+-- TOC entry 3549 (class 0 OID 0)
 -- Dependencies: 238
--- Name: ac_xi_sa_kontrol; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_kontrol; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_kontrol', 8, true);
 
 
 --
--- TOC entry 3547 (class 0 OID 0)
+-- TOC entry 3550 (class 0 OID 0)
 -- Dependencies: 247
--- Name: ac_xi_sa_level_akses; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_level_akses; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_level_akses', 4, false);
 
 
 --
--- TOC entry 3548 (class 0 OID 0)
+-- TOC entry 3551 (class 0 OID 0)
 -- Dependencies: 245
--- Name: ac_xi_sa_log_login; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_log_login; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_log_login', 9, true);
 
 
 --
--- TOC entry 3549 (class 0 OID 0)
+-- TOC entry 3552 (class 0 OID 0)
 -- Dependencies: 228
--- Name: ac_xi_sa_log_session; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_log_session; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.ac_xi_sa_log_session', 77, true);
+SELECT pg_catalog.setval('public.ac_xi_sa_log_session', 79, true);
 
 
 --
--- TOC entry 3550 (class 0 OID 0)
+-- TOC entry 3553 (class 0 OID 0)
 -- Dependencies: 242
--- Name: ac_xi_sa_menu; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_menu; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_menu', 14, true);
 
 
 --
--- TOC entry 3551 (class 0 OID 0)
+-- TOC entry 3554 (class 0 OID 0)
 -- Dependencies: 239
--- Name: ac_xi_sa_module; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_module; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_module', 5, true);
 
 
 --
--- TOC entry 3552 (class 0 OID 0)
+-- TOC entry 3555 (class 0 OID 0)
 -- Dependencies: 240
--- Name: ac_xi_sa_rules; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_rules; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_rules', 95, true);
 
 
 --
--- TOC entry 3553 (class 0 OID 0)
+-- TOC entry 3556 (class 0 OID 0)
 -- Dependencies: 243
--- Name: ac_xi_sa_users; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_users; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_users', 4, true);
 
 
 --
--- TOC entry 3554 (class 0 OID 0)
+-- TOC entry 3557 (class 0 OID 0)
 -- Dependencies: 244
--- Name: ac_xi_sa_users_default_pass; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_users_default_pass; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_users_default_pass', 2, true);
 
 
 --
--- TOC entry 3555 (class 0 OID 0)
+-- TOC entry 3558 (class 0 OID 0)
 -- Dependencies: 234
--- Name: ac_xi_sa_users_privileges; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_users_privileges; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_users_privileges', 5, true);
 
 
 --
--- TOC entry 3556 (class 0 OID 0)
+-- TOC entry 3559 (class 0 OID 0)
 -- Dependencies: 235
--- Name: ac_xi_sa_white_list; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: ac_xi_sa_white_list; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.ac_xi_sa_white_list', 5, false);
@@ -1290,7 +1380,7 @@ SELECT pg_catalog.setval('public.ac_xi_sa_white_list', 5, false);
 
 --
 -- TOC entry 3304 (class 2606 OID 24758)
--- Name: xi_sa_ci_session xi_sa_ci_session_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_ci_session xi_sa_ci_session_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_ci_session
@@ -1299,7 +1389,7 @@ ALTER TABLE ONLY public.xi_sa_ci_session
 
 --
 -- TOC entry 3306 (class 2606 OID 33130)
--- Name: xi_sa_fungsi xi_sa_fungsi_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_fungsi xi_sa_fungsi_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_fungsi
@@ -1308,7 +1398,7 @@ ALTER TABLE ONLY public.xi_sa_fungsi
 
 --
 -- TOC entry 3308 (class 2606 OID 33118)
--- Name: xi_sa_group xi_sa_group_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_group xi_sa_group_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_group
@@ -1317,7 +1407,7 @@ ALTER TABLE ONLY public.xi_sa_group
 
 --
 -- TOC entry 3310 (class 2606 OID 33173)
--- Name: xi_sa_group_privileges xi_sa_group_privileges_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_group_privileges xi_sa_group_privileges_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_group_privileges
@@ -1326,7 +1416,7 @@ ALTER TABLE ONLY public.xi_sa_group_privileges
 
 --
 -- TOC entry 3312 (class 2606 OID 33243)
--- Name: xi_sa_jenis_fungsi xi_sa_jenis_fungsi_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_jenis_fungsi xi_sa_jenis_fungsi_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_jenis_fungsi
@@ -1335,7 +1425,7 @@ ALTER TABLE ONLY public.xi_sa_jenis_fungsi
 
 --
 -- TOC entry 3314 (class 2606 OID 33142)
--- Name: xi_sa_kontrol xi_sa_kontrol_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_kontrol xi_sa_kontrol_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_kontrol
@@ -1344,7 +1434,7 @@ ALTER TABLE ONLY public.xi_sa_kontrol
 
 --
 -- TOC entry 3316 (class 2606 OID 33251)
--- Name: xi_sa_level_akses xi_sa_level_akses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_level_akses xi_sa_level_akses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_level_akses
@@ -1353,7 +1443,7 @@ ALTER TABLE ONLY public.xi_sa_level_akses
 
 --
 -- TOC entry 3318 (class 2606 OID 33228)
--- Name: xi_sa_log_login xi_sa_log_login_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_log_login xi_sa_log_login_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_log_login
@@ -1361,8 +1451,8 @@ ALTER TABLE ONLY public.xi_sa_log_login
 
 
 --
--- TOC entry 3320 (class 2606 OID 24778)
--- Name: xi_sa_log_session xi_sa_log_session_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3320 (class 2606 OID 33542)
+-- Name: xi_sa_log_session xi_sa_log_session_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_log_session
@@ -1371,7 +1461,7 @@ ALTER TABLE ONLY public.xi_sa_log_session
 
 --
 -- TOC entry 3322 (class 2606 OID 33182)
--- Name: xi_sa_menu xi_sa_menu_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_menu xi_sa_menu_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_menu
@@ -1380,7 +1470,7 @@ ALTER TABLE ONLY public.xi_sa_menu
 
 --
 -- TOC entry 3324 (class 2606 OID 33154)
--- Name: xi_sa_module xi_sa_module_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_module xi_sa_module_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_module
@@ -1389,7 +1479,7 @@ ALTER TABLE ONLY public.xi_sa_module
 
 --
 -- TOC entry 3326 (class 2606 OID 33164)
--- Name: xi_sa_rules xi_sa_rules_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_rules xi_sa_rules_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_rules
@@ -1398,7 +1488,7 @@ ALTER TABLE ONLY public.xi_sa_rules
 
 --
 -- TOC entry 3328 (class 2606 OID 24786)
--- Name: xi_sa_setting xi_sa_setting_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_setting xi_sa_setting_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_setting
@@ -1407,7 +1497,7 @@ ALTER TABLE ONLY public.xi_sa_setting
 
 --
 -- TOC entry 3330 (class 2606 OID 24788)
--- Name: xi_sa_status xi_sa_status_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_status xi_sa_status_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_status
@@ -1416,7 +1506,7 @@ ALTER TABLE ONLY public.xi_sa_status
 
 --
 -- TOC entry 3335 (class 2606 OID 33078)
--- Name: xi_sa_users_default_pass xi_sa_users_default_pass_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_users_default_pass xi_sa_users_default_pass_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_users_default_pass
@@ -1425,7 +1515,7 @@ ALTER TABLE ONLY public.xi_sa_users_default_pass
 
 --
 -- TOC entry 3333 (class 2606 OID 33201)
--- Name: xi_sa_users xi_sa_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_users xi_sa_users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_users
@@ -1434,7 +1524,7 @@ ALTER TABLE ONLY public.xi_sa_users
 
 --
 -- TOC entry 3337 (class 2606 OID 33101)
--- Name: xi_sa_users_privileges xi_sa_users_privileges_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_users_privileges xi_sa_users_privileges_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_users_privileges
@@ -1443,7 +1533,7 @@ ALTER TABLE ONLY public.xi_sa_users_privileges
 
 --
 -- TOC entry 3339 (class 2606 OID 33110)
--- Name: xi_sa_white_list xi_sa_white_list_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_white_list xi_sa_white_list_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_white_list
@@ -1452,7 +1542,7 @@ ALTER TABLE ONLY public.xi_sa_white_list
 
 --
 -- TOC entry 3331 (class 1259 OID 24789)
--- Name: username; Type: INDEX; Schema: public; Owner: -
+-- Name: username; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE INDEX username ON public.xi_sa_users USING btree (username);
@@ -1460,7 +1550,7 @@ CREATE INDEX username ON public.xi_sa_users USING btree (username);
 
 --
 -- TOC entry 3347 (class 2606 OID 33202)
--- Name: xi_sa_users_default_pass defaultPasstoUsers; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_users_default_pass defaultPasstoUsers; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_users_default_pass
@@ -1469,7 +1559,7 @@ ALTER TABLE ONLY public.xi_sa_users_default_pass
 
 --
 -- TOC entry 3340 (class 2606 OID 33310)
--- Name: xi_sa_fungsi fungsiToJenisFungsi; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_fungsi fungsiToJenisFungsi; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_fungsi
@@ -1478,7 +1568,7 @@ ALTER TABLE ONLY public.xi_sa_fungsi
 
 --
 -- TOC entry 3341 (class 2606 OID 33295)
--- Name: xi_sa_group_privileges groupPrevilegesToGroup; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_group_privileges groupPrevilegesToGroup; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_group_privileges
@@ -1487,7 +1577,7 @@ ALTER TABLE ONLY public.xi_sa_group_privileges
 
 --
 -- TOC entry 3342 (class 2606 OID 33305)
--- Name: xi_sa_group_privileges groupPrevilegesToRules; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_group_privileges groupPrevilegesToRules; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_group_privileges
@@ -1495,8 +1585,8 @@ ALTER TABLE ONLY public.xi_sa_group_privileges
 
 
 --
--- TOC entry 3343 (class 2606 OID 33290)
--- Name: xi_sa_log_session logSessionToUsers; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3343 (class 2606 OID 33543)
+-- Name: xi_sa_log_session logSessionToUsers; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_log_session
@@ -1505,7 +1595,7 @@ ALTER TABLE ONLY public.xi_sa_log_session
 
 --
 -- TOC entry 3346 (class 2606 OID 33285)
--- Name: xi_sa_rules rulesToFungsi; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_rules rulesToFungsi; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_rules
@@ -1514,7 +1604,7 @@ ALTER TABLE ONLY public.xi_sa_rules
 
 --
 -- TOC entry 3345 (class 2606 OID 33280)
--- Name: xi_sa_rules rulesToKontrol; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_rules rulesToKontrol; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_rules
@@ -1523,7 +1613,7 @@ ALTER TABLE ONLY public.xi_sa_rules
 
 --
 -- TOC entry 3344 (class 2606 OID 33275)
--- Name: xi_sa_rules rulesToModule; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_rules rulesToModule; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_rules
@@ -1532,7 +1622,7 @@ ALTER TABLE ONLY public.xi_sa_rules
 
 --
 -- TOC entry 3349 (class 2606 OID 33270)
--- Name: xi_sa_users_privileges whiteToGroup; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_users_privileges whiteToGroup; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_users_privileges
@@ -1541,14 +1631,14 @@ ALTER TABLE ONLY public.xi_sa_users_privileges
 
 --
 -- TOC entry 3348 (class 2606 OID 33265)
--- Name: xi_sa_users_privileges whiteToUsers; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: xi_sa_users_privileges whiteToUsers; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.xi_sa_users_privileges
     ADD CONSTRAINT "whiteToUsers" FOREIGN KEY (id_users) REFERENCES public.xi_sa_users(id_users) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
--- Completed on 2022-02-25 11:58:04
+-- Completed on 2022-02-25 16:21:42
 
 --
 -- PostgreSQL database dump complete

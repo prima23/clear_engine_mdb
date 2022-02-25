@@ -2663,3 +2663,23 @@ ERROR - 2022-02-25 10:34:33 --> 404 Page Not Found: /index
 ERROR - 2022-02-25 10:34:33 --> 404 Page Not Found: /index
 ERROR - 2022-02-25 10:34:41 --> 404 Page Not Found: /index
 ERROR - 2022-02-25 10:34:41 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:00:57 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable D:\xampp7\htdocs\clear-engine\application\modules\auth\models\Model_auth_signin.php 184
+ERROR - 2022-02-25 14:41:23 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable D:\xampp7\htdocs\clear-engine\application\modules\auth\models\Model_auth_signin.php 184
+ERROR - 2022-02-25 14:43:02 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:43:02 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:46:08 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:46:08 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:50:02 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:53:17 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:53:19 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:53:30 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:54:29 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:54:30 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:57:41 --> Severity: Notice --> Undefined variable: appFavico D:\xampp7\htdocs\clear-engine\application\views\layouts\partials\header.php 1
+ERROR - 2022-02-25 14:58:00 --> Severity: Notice --> Undefined variable: appFavico D:\xampp7\htdocs\clear-engine\application\views\layouts\partials\header.php 1
+ERROR - 2022-02-25 14:58:05 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:58:06 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:58:08 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 14:58:08 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 15:32:43 --> 404 Page Not Found: /index
+ERROR - 2022-02-25 15:32:43 --> 404 Page Not Found: /index
